@@ -47,18 +47,19 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Contenedor = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuTitulo
             // 
             this.MenuTitulo.AutoSize = false;
-            this.MenuTitulo.BackColor = System.Drawing.Color.SteelBlue;
+            this.MenuTitulo.BackColor = System.Drawing.Color.DimGray;
             this.MenuTitulo.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuTitulo.Location = new System.Drawing.Point(0, 0);
             this.MenuTitulo.Name = "MenuTitulo";
             this.MenuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MenuTitulo.Size = new System.Drawing.Size(800, 69);
+            this.MenuTitulo.Size = new System.Drawing.Size(1011, 69);
             this.MenuTitulo.TabIndex = 2;
             this.MenuTitulo.Text = "menuStrip2";
             // 
@@ -75,7 +76,7 @@
             this.toolStripMenuItem3});
             this.Menu.Location = new System.Drawing.Point(0, 69);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(800, 33);
+            this.Menu.Size = new System.Drawing.Size(1011, 33);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "menuStrip1";
             // 
@@ -160,9 +161,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.BackColor = System.Drawing.Color.DimGray;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 25);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(366, 33);
             this.label1.TabIndex = 4;
@@ -171,8 +173,9 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.BackColor = System.Drawing.Color.SteelBlue;
-            this.lblUsuario.Location = new System.Drawing.Point(570, 25);
+            this.lblUsuario.BackColor = System.Drawing.Color.DimGray;
+            this.lblUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblUsuario.Location = new System.Drawing.Point(645, 25);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(68, 16);
             this.lblUsuario.TabIndex = 5;
@@ -181,8 +184,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(455, 25);
+            this.label2.BackColor = System.Drawing.Color.DimGray;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(519, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 6;
@@ -220,11 +224,20 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(224, 30);
             this.toolStripMenuItem4.Text = "Reporte Ventas";
             // 
+            // Contenedor
+            // 
+            this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Contenedor.Location = new System.Drawing.Point(0, 102);
+            this.Contenedor.Name = "Contenedor";
+            this.Contenedor.Size = new System.Drawing.Size(1011, 446);
+            this.Contenedor.TabIndex = 7;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 548);
+            this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label1);
@@ -233,6 +246,7 @@
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);
@@ -261,5 +275,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel Contenedor;
     }
 }

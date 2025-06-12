@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Inicio : Form
+    public partial class Usuarios : Form
     {
-        public Inicio()
+        public Usuarios()
         {
             InitializeComponent();
-        }
-        private void Inicio_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

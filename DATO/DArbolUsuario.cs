@@ -109,7 +109,7 @@ namespace DATO
                 }
             }
         }
-        public EUsuario BuscarPersona(EUsuario dato)
+        public EUsuario BuscarUsuario(EUsuario dato)
         {
             EUsuario per = BuscarRaiz(RaizPrincipal, dato);
             return per;
