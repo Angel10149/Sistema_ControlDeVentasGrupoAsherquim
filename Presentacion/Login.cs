@@ -20,10 +20,21 @@ namespace Presentacion
         {
             this.Close();
         }
-
-        private void Login_Load(object sender, EventArgs e)
+        private void BtnIngresar_Click(object sender, EventArgs e)
         {
+            Inicio form = new Inicio();
 
+            form.Show();//muestre
+            this.Hide();//oculta el Login
+
+            form.FormClosing += Frm_Cerrando;// se una cuando cierra        }
+        }
+        private void Frm_Cerrando(object sender, FormClosingEventArgs e)
+        {//al regresar limpie los txt
+            TxtCodigoUsuario.Clear();
+            TxtClave.Clear();
+            //al cerrar inicio muestre el login
+            this.Show();
         }
     }
 }
