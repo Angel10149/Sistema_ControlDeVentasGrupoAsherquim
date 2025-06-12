@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LRol.cs" />
     <Compile Include="LUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,10 +53,6 @@
     <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
       <Project>{2f699fc2-b63d-425c-9e97-93b4c2613c25}</Project>
       <Name>ENTIDADES</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Presentacion\Presentacion.csproj">
-      <Project>{5e530597-c085-4d2c-a3f8-58c1320223a3}</Project>
-      <Name>Presentacion</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

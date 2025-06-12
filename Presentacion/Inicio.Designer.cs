@@ -37,16 +37,16 @@
             this.MenuVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRegistrarVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuVerDetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuProveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuReporteVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.MenuCompras = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Contenedor = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,7 @@
             this.MenuUsuarios.Name = "MenuUsuarios";
             this.MenuUsuarios.Size = new System.Drawing.Size(99, 29);
             this.MenuUsuarios.Text = "Usuarios";
+            this.MenuUsuarios.Click += new System.EventHandler(this.MenuUsuarios_Click);
             // 
             // MenuMantenedor
             // 
@@ -102,13 +103,13 @@
             // SubMenuCategoria
             // 
             this.SubMenuCategoria.Name = "SubMenuCategoria";
-            this.SubMenuCategoria.Size = new System.Drawing.Size(224, 30);
+            this.SubMenuCategoria.Size = new System.Drawing.Size(180, 30);
             this.SubMenuCategoria.Text = "Categoria";
             // 
             // SubMenuProducto
             // 
             this.SubMenuProducto.Name = "SubMenuProducto";
-            this.SubMenuProducto.Size = new System.Drawing.Size(224, 30);
+            this.SubMenuProducto.Size = new System.Drawing.Size(180, 30);
             this.SubMenuProducto.Text = "Producto";
             // 
             // MenuVentas
@@ -125,14 +126,30 @@
             // SubMenuRegistrarVenta
             // 
             this.SubMenuRegistrarVenta.Name = "SubMenuRegistrarVenta";
-            this.SubMenuRegistrarVenta.Size = new System.Drawing.Size(224, 30);
+            this.SubMenuRegistrarVenta.Size = new System.Drawing.Size(190, 30);
             this.SubMenuRegistrarVenta.Text = "Registrar";
             // 
             // SubMenuVerDetalleVenta
             // 
             this.SubMenuVerDetalleVenta.Name = "SubMenuVerDetalleVenta";
-            this.SubMenuVerDetalleVenta.Size = new System.Drawing.Size(224, 30);
+            this.SubMenuVerDetalleVenta.Size = new System.Drawing.Size(190, 30);
             this.SubMenuVerDetalleVenta.Text = "Ver Detalle";
+            // 
+            // MenuCompras
+            // 
+            this.MenuCompras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.MenuCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.MenuCompras.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MenuCompras.Name = "MenuCompras";
+            this.MenuCompras.Size = new System.Drawing.Size(101, 29);
+            this.MenuCompras.Text = "Compras";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem2.Text = "Reporte Ventas";
             // 
             // MenuClientes
             // 
@@ -157,6 +174,22 @@
             this.SubMenuReporteVentas.Name = "SubMenuReporteVentas";
             this.SubMenuReporteVentas.Size = new System.Drawing.Size(224, 30);
             this.SubMenuReporteVentas.Text = "Reporte Ventas";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4});
+            this.toolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 29);
+            this.toolStripMenuItem3.Text = "Reportes";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem4.Text = "Reporte Ventas";
             // 
             // label1
             // 
@@ -191,38 +224,6 @@
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Usuario:";
-            // 
-            // MenuCompras
-            // 
-            this.MenuCompras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.MenuCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuCompras.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuCompras.Name = "MenuCompras";
-            this.MenuCompras.Size = new System.Drawing.Size(101, 29);
-            this.MenuCompras.Text = "Compras";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 30);
-            this.toolStripMenuItem2.Text = "Reporte Ventas";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4});
-            this.toolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 29);
-            this.toolStripMenuItem3.Text = "Reportes";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(224, 30);
-            this.toolStripMenuItem4.Text = "Reporte Ventas";
             // 
             // Contenedor
             // 
