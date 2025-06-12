@@ -16,5 +16,14 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
