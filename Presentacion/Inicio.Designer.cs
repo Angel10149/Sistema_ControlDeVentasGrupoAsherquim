@@ -30,20 +30,13 @@
         {
             this.MenuTitulo = new System.Windows.Forms.MenuStrip();
             this.Menu = new System.Windows.Forms.MenuStrip();
-            this.MenuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuMantenedor = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuCategoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuProducto = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuVentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuRegistrarVenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuVerDetalleVenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuCompras = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuProveedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuReporteVentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarios = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem6 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.MenuReportes = new FontAwesome.Sharp.IconMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,7 +52,7 @@
             this.MenuTitulo.Location = new System.Drawing.Point(0, 0);
             this.MenuTitulo.Name = "MenuTitulo";
             this.MenuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MenuTitulo.Size = new System.Drawing.Size(1011, 69);
+            this.MenuTitulo.Size = new System.Drawing.Size(1275, 69);
             this.MenuTitulo.TabIndex = 2;
             this.MenuTitulo.Text = "menuStrip2";
             // 
@@ -68,128 +61,116 @@
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuUsuarios,
-            this.MenuMantenedor,
-            this.MenuVentas,
-            this.MenuCompras,
-            this.MenuClientes,
-            this.MenuProveedores,
-            this.toolStripMenuItem3});
+            this.iconMenuItem6,
+            this.iconMenuItem4,
+            this.iconMenuItem3,
+            this.iconMenuItem2,
+            this.iconMenuItem1,
+            this.MenuReportes});
             this.Menu.Location = new System.Drawing.Point(0, 69);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1011, 33);
+            this.Menu.Size = new System.Drawing.Size(1275, 83);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "menuStrip1";
             // 
             // MenuUsuarios
             // 
+            this.MenuUsuarios.AutoSize = false;
             this.MenuUsuarios.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.MenuUsuarios.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.MenuUsuarios.IconColor = System.Drawing.Color.Black;
+            this.MenuUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MenuUsuarios.IconSize = 50;
             this.MenuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.MenuUsuarios.Name = "MenuUsuarios";
-            this.MenuUsuarios.Size = new System.Drawing.Size(99, 29);
+            this.MenuUsuarios.Size = new System.Drawing.Size(80, 79);
             this.MenuUsuarios.Text = "Usuarios";
+            this.MenuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MenuUsuarios.Click += new System.EventHandler(this.MenuUsuarios_Click);
             // 
-            // MenuMantenedor
+            // iconMenuItem6
             // 
-            this.MenuMantenedor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuCategoria,
-            this.SubMenuProducto});
-            this.MenuMantenedor.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuMantenedor.Name = "MenuMantenedor";
-            this.MenuMantenedor.Size = new System.Drawing.Size(130, 29);
-            this.MenuMantenedor.Text = "Mantenedor";
+            this.iconMenuItem6.AutoSize = false;
+            this.iconMenuItem6.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.iconMenuItem6.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.iconMenuItem6.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem6.IconSize = 50;
+            this.iconMenuItem6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem6.Name = "iconMenuItem6";
+            this.iconMenuItem6.Size = new System.Drawing.Size(110, 79);
+            this.iconMenuItem6.Text = "Mantenedor";
+            this.iconMenuItem6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // SubMenuCategoria
+            // iconMenuItem4
             // 
-            this.SubMenuCategoria.Name = "SubMenuCategoria";
-            this.SubMenuCategoria.Size = new System.Drawing.Size(180, 30);
-            this.SubMenuCategoria.Text = "Categoria";
+            this.iconMenuItem4.AutoSize = false;
+            this.iconMenuItem4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.iconMenuItem4.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem4.IconSize = 50;
+            this.iconMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem4.Name = "iconMenuItem4";
+            this.iconMenuItem4.Size = new System.Drawing.Size(80, 79);
+            this.iconMenuItem4.Text = "Ventas";
+            this.iconMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // SubMenuProducto
+            // iconMenuItem3
             // 
-            this.SubMenuProducto.Name = "SubMenuProducto";
-            this.SubMenuProducto.Size = new System.Drawing.Size(180, 30);
-            this.SubMenuProducto.Text = "Producto";
+            this.iconMenuItem3.AutoSize = false;
+            this.iconMenuItem3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem3.IconSize = 50;
+            this.iconMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem3.Name = "iconMenuItem3";
+            this.iconMenuItem3.Size = new System.Drawing.Size(80, 79);
+            this.iconMenuItem3.Text = "Compras";
+            this.iconMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // MenuVentas
+            // iconMenuItem2
             // 
-            this.MenuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuRegistrarVenta,
-            this.SubMenuVerDetalleVenta});
-            this.MenuVentas.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuVentas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuVentas.Name = "MenuVentas";
-            this.MenuVentas.Size = new System.Drawing.Size(82, 29);
-            this.MenuVentas.Text = "Ventas";
+            this.iconMenuItem2.AutoSize = false;
+            this.iconMenuItem2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem2.IconSize = 50;
+            this.iconMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem2.Name = "iconMenuItem2";
+            this.iconMenuItem2.Size = new System.Drawing.Size(80, 79);
+            this.iconMenuItem2.Text = "Clientes";
+            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // SubMenuRegistrarVenta
+            // iconMenuItem1
             // 
-            this.SubMenuRegistrarVenta.Name = "SubMenuRegistrarVenta";
-            this.SubMenuRegistrarVenta.Size = new System.Drawing.Size(190, 30);
-            this.SubMenuRegistrarVenta.Text = "Registrar";
+            this.iconMenuItem1.AutoSize = false;
+            this.iconMenuItem1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 50;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(110, 79);
+            this.iconMenuItem1.Text = "Proveedores";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // SubMenuVerDetalleVenta
+            // MenuReportes
             // 
-            this.SubMenuVerDetalleVenta.Name = "SubMenuVerDetalleVenta";
-            this.SubMenuVerDetalleVenta.Size = new System.Drawing.Size(190, 30);
-            this.SubMenuVerDetalleVenta.Text = "Ver Detalle";
-            // 
-            // MenuCompras
-            // 
-            this.MenuCompras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.MenuCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuCompras.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuCompras.Name = "MenuCompras";
-            this.MenuCompras.Size = new System.Drawing.Size(101, 29);
-            this.MenuCompras.Text = "Compras";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 30);
-            this.toolStripMenuItem2.Text = "Reporte Ventas";
-            // 
-            // MenuClientes
-            // 
-            this.MenuClientes.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuClientes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuClientes.Name = "MenuClientes";
-            this.MenuClientes.Size = new System.Drawing.Size(93, 29);
-            this.MenuClientes.Text = "Clientes";
-            // 
-            // MenuProveedores
-            // 
-            this.MenuProveedores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuReporteVentas});
-            this.MenuProveedores.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MenuProveedores.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.MenuProveedores.Name = "MenuProveedores";
-            this.MenuProveedores.Size = new System.Drawing.Size(131, 29);
-            this.MenuProveedores.Text = "Proveedores";
-            // 
-            // SubMenuReporteVentas
-            // 
-            this.SubMenuReporteVentas.Name = "SubMenuReporteVentas";
-            this.SubMenuReporteVentas.Size = new System.Drawing.Size(224, 30);
-            this.SubMenuReporteVentas.Text = "Reporte Ventas";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4});
-            this.toolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 29);
-            this.toolStripMenuItem3.Text = "Reportes";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(224, 30);
-            this.toolStripMenuItem4.Text = "Reporte Ventas";
+            this.MenuReportes.AutoSize = false;
+            this.MenuReportes.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.MenuReportes.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            this.MenuReportes.IconColor = System.Drawing.Color.Black;
+            this.MenuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MenuReportes.IconSize = 50;
+            this.MenuReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.MenuReportes.Name = "MenuReportes";
+            this.MenuReportes.Size = new System.Drawing.Size(80, 79);
+            this.MenuReportes.Text = "Reportes";
+            this.MenuReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // label1
             // 
@@ -228,16 +209,16 @@
             // Contenedor
             // 
             this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(0, 102);
+            this.Contenedor.Location = new System.Drawing.Point(0, 152);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1011, 446);
+            this.Contenedor.Size = new System.Drawing.Size(1275, 396);
             this.Contenedor.TabIndex = 7;
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 548);
+            this.ClientSize = new System.Drawing.Size(1275, 548);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuario);
@@ -259,23 +240,16 @@
 
         private System.Windows.Forms.MenuStrip MenuTitulo;
         private System.Windows.Forms.MenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem MenuUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem MenuMantenedor;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuCategoria;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuProducto;
-        private System.Windows.Forms.ToolStripMenuItem MenuVentas;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuRegistrarVenta;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuVerDetalleVenta;
-        private System.Windows.Forms.ToolStripMenuItem MenuClientes;
-        private System.Windows.Forms.ToolStripMenuItem MenuProveedores;
-        private System.Windows.Forms.ToolStripMenuItem SubMenuReporteVentas;
-        private System.Windows.Forms.ToolStripMenuItem MenuCompras;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel Contenedor;
+        private FontAwesome.Sharp.IconMenuItem MenuReportes;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem6;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private FontAwesome.Sharp.IconMenuItem MenuUsuarios;
     }
 }
