@@ -119,13 +119,13 @@
     <None Include="Resources\Captura de pantalla 2025-06-11 192627.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DATO\DATO.csproj">
+      <Project>{8ca8cac1-c9be-4f97-be36-d69cde3ba14d}</Project>
+      <Name>DATO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
       <Project>{2f699fc2-b63d-425c-9e97-93b4c2613c25}</Project>
       <Name>ENTIDADES</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LOGICA\LOGICA.csproj">
-      <Project>{379410e7-5fe9-484d-8b92-b7d66485ccee}</Project>
-      <Name>LOGICA</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

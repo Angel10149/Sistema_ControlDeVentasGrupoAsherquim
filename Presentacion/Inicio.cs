@@ -56,5 +56,10 @@ namespace Presentacion
         {
             AbrirFormulario((ToolStripMenuItem)sender, new FrmUsuarios());
         }
+
+        private void iconMenuItem6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

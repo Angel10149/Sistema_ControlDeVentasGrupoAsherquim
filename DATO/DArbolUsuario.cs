@@ -4,84 +4,97 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ENTIDADES;
 
 namespace DATO
 {
     public class DArbolUsuario
     {
-        private static DArbolUsuario _instancia;
-        public static DArbolUsuario Instancia
-        {
-            get
-            {
-                if (_instancia == null)
-                {
-                    _instancia = new DArbolUsuario();
-                }
-                return _instancia;
-            }
-        }
         public DNodoArbolUsuario RaizPrincipal = null;
-        private DArbolUsuario()
+        //Usuarios Predefinidos
+        public DArbolUsuario()
         {
-            EUsuario usuarioAdmin = new EUsuario
-            {
-                CodigoUsuario = 101010,
-                IdUsuario = 1,
-                NombreCompleto = "Usuario Administrador",
-                Correo = "admin@correo.com",
-                Clave = "123",
-                Rol = new ERol { IdRol = 1, Descripcion = "ADMINISTRADOR" },
-                Estado = true
-            };
 
-            EUsuario usuarioEmpleado = new EUsuario
+            if (RaizPrincipal == null)
             {
-                CodigoUsuario = 202020,
-                IdUsuario = 2,
-                NombreCompleto = "Usuario Empleado",
-                Correo = "empleado@correo.com",
-                Clave = "456",
-                Rol = new ERol { IdRol = 2, Descripcion = "EMPLEADO" },
-                Estado = true
-            };
-            InsertarDato(ref RaizPrincipal, usuarioAdmin);
-            InsertarDato(ref RaizPrincipal, usuarioEmpleado);
+                EUsuario usuarioAdmin = new EUsuario
+                {
+                    CodigoUsuario = 101010,
+                    IdUsuario = 1,
+                    NombreCompleto = "Usuario Administrador",
+                    Correo = "admin@correo.com",
+                    Clave = "123",
+                    Rol = new ERol { IdRol = 1, Descripcion = "ADMINISTRADOR" },
+                    Estado = true
+                };
+
+                EUsuario usuarioEmpleado = new EUsuario
+                {
+                    CodigoUsuario = 202020,
+                    IdUsuario = 2,
+                    NombreCompleto = "Usuario Empleado",
+                    Correo = "empleado@correo.com",
+                    Clave = "456",
+                    Rol = new ERol { IdRol = 2, Descripcion = "EMPLEADO" },
+                    Estado = false
+                };
+                InsertarDato(ref RaizPrincipal, usuarioAdmin);
+                InsertarDato(ref RaizPrincipal, usuarioEmpleado);
+            }
+
         }
+        //Registrar Usuaro
         private int ObtenerSiguienteIdUsuario()
         {
             int maxId = 0;
             ObtenerMaximoID(RaizPrincipal, ref maxId);
             return maxId + 1;
         }
-        private void ObtenerMaximoID(DNodoArbolUsuario raiz, ref int MD)
+        private void ObtenerMaximoID(DNodoArbolUsuario raiz, ref int MxId)//crear id ussuario segun como se registra
         {
             if (raiz == null)
             {
                 return;
             }
-            if (raiz.dato.IdUsuario > MD)
+            if (raiz.dato.IdUsuario > MxId)
             {
-                MD =raiz.dato.IdUsuario;
+                MxId = raiz.dato.IdUsuario;
             }
-            ObtenerMaximoID(raiz.izquierda, ref MD);
-            ObtenerMaximoID(raiz.derecha, ref MD);
+            ObtenerMaximoID(raiz.izquierda, ref MxId);
+            ObtenerMaximoID(raiz.derecha, ref MxId);
         }
-
-        public int Registrar(EUsuario usuario, out string mensaje)
+        public int RegistrarUsuario(EUsuario usuario, out string Mensaje)
         {
+            Mensaje = "";
 
-            mensaje = "";
+            if (usuario.CodigoUsuario == 0)
+            {
+                Mensaje += "Es necesario el documento del usuario\n";
+            }
+            if (usuario.NombreCompleto == "")
+            {
+                Mensaje += "Es necesario el nombre completo del usuario\n";
+            }
+            if (usuario.Clave == "")
+            {
+                Mensaje += "Es necesario la clave del usuario\n";
+            }
+            if (Mensaje != "")
+            {
+                return 0;
+            }
+            Mensaje = "";
             if (Buscar(usuario.CodigoUsuario) != null)
             {
-                mensaje = "El usuario ya existe en el sistema.";
+                Mensaje = "El usuario ya existe en el sistema.";
                 return 0;
             }
             usuario.IdUsuario = ObtenerSiguienteIdUsuario();
             InsertarDato(ref RaizPrincipal, usuario);
-            mensaje = "Usuario registrado correctamente";
+            Mensaje = "Usuario registrado correctamente";
             return usuario.IdUsuario;
+
         }
         private void InsertarDato(ref DNodoArbolUsuario raiz, EUsuario dato)
         {
@@ -103,6 +116,58 @@ namespace DATO
                 }
             }
         }
+        //Editar Usuario
+        public bool EditarUsuario(EUsuario usuario, out string Mensaje)
+        {
+            Mensaje = "";
+
+            if (usuario.CodigoUsuario == 0)
+                Mensaje += "Es necesario el documento del usuario\n";
+
+            if (string.IsNullOrWhiteSpace(usuario.NombreCompleto))
+                Mensaje += "Es necesario el nombre completo del usuario\n";
+
+            if (string.IsNullOrWhiteSpace(usuario.Clave))
+                Mensaje += "Es necesario la clave del usuario\n";
+
+            if (Mensaje != "")
+                return false;
+
+            return Editar(usuario, out Mensaje);
+        }
+        private bool Editar(EUsuario usuario, out string mensaje)
+        {
+            mensaje = "";
+            EUsuario encontrado = Buscar(usuario.CodigoUsuario);
+            if (encontrado == null)
+            {
+                mensaje = "Usuario No Encontrado";
+                return false;
+            }
+
+            encontrado.CodigoUsuario = usuario.CodigoUsuario;
+            encontrado.NombreCompleto = usuario.NombreCompleto;
+            encontrado.Correo = usuario.Correo;
+            encontrado.Clave = usuario.Clave;
+
+            // Buscar rol completo desde lista de roles
+            DListaRol logicaRol = new DListaRol();
+            ERol rolCompleto = logicaRol.BuscarRolPorId(usuario.Rol.IdRol);
+            if (rolCompleto != null)
+            {
+                encontrado.Rol = rolCompleto;
+            }
+            else
+            {
+                encontrado.Rol = new ERol { IdRol = usuario.Rol.IdRol, Descripcion = "Sin rol" };
+            }
+
+            encontrado.Estado = usuario.Estado;
+
+            mensaje = "Datos del usuario actualizados";
+            return true;
+        }
+        //Eliminar usuario
         private DNodoArbolUsuario BuscarMayor(DNodoArbolUsuario raiz)
         {
             if (raiz.derecha == null)
@@ -125,35 +190,15 @@ namespace DATO
                 return BuscarMenor(raiz.izquierda);
             }
         }
-        public bool Editar(EUsuario usuario, out string mensaje)
+        public bool EliminarUsuario(EUsuario usuario, out string mensaje)
         {
             mensaje = "";
-            EUsuario encontrado = Buscar(usuario.CodigoUsuario);
-            if (encontrado == null)
-            {
-                mensaje = "Usuario No Econtrado";
-                return false;
-            }
-            encontrado.CodigoUsuario = usuario.CodigoUsuario;
-            encontrado.CodigoUsuario = usuario.CodigoUsuario;
-            encontrado.NombreCompleto = usuario.NombreCompleto;
-            encontrado.Correo = usuario.Correo;
-            encontrado.Clave = usuario.Clave;
-            encontrado.Rol.IdRol = usuario.Rol.IdRol;
-            encontrado.Estado = usuario.Estado;
-
-            mensaje = "Datos Del Usuario Actualizado";
-            return true;
-        }
-        public bool EliminarUsuario(int IDUsu, out string mensaje)
-        {
-            mensaje = "";
-            if (Buscar (IDUsu) == null)
+            if (Buscar(usuario.CodigoUsuario) == null)
             {
                 mensaje = "El Usuario No Existe";
                 return false;
             }
-            EliminarRaiz(ref RaizPrincipal, IDUsu);
+            EliminarRaiz(ref RaizPrincipal, usuario.CodigoUsuario);
             mensaje = "Usuario Eliminado Correctamente";
             return true;
         }
@@ -205,7 +250,40 @@ namespace DATO
                 }
             }
         }
-        public EUsuario Buscar (int CodigoUsu)
+        //Buscar usuario para Iniciar sesion
+        public EUsuario BuscarUsuario(int CodigoUsuario, string clave)
+        {
+            EUsuario Usu = BuscarRaiz(RaizPrincipal, CodigoUsuario, clave);
+            return Usu;
+        }
+        private EUsuario BuscarRaiz(DNodoArbolUsuario raiz, int Codigousuario, string clave)
+        {
+            if (raiz == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (Codigousuario < raiz.dato.CodigoUsuario)
+                {
+                    return BuscarRaiz(raiz.izquierda, Codigousuario, clave);
+                }
+                else if (Codigousuario > raiz.dato.CodigoUsuario)
+                {
+                    return BuscarRaiz(raiz.derecha, Codigousuario, clave);
+                }
+                else
+                {
+                    if (clave == raiz.dato.Clave)
+                    {
+                        return raiz.dato;
+                    }
+                    else { return null; }
+                }
+            }
+        }
+        //Buscar usuario
+        public EUsuario Buscar(int CodigoUsu)
         {
             EUsuario dat = BuscarRaizz(RaizPrincipal, CodigoUsu);
             return dat;
@@ -232,31 +310,22 @@ namespace DATO
                 }
             }
         }
-        public EUsuario BuscarUsuario(int Document, string clav)
+
+        public void MostrarGrid(DataGridView gv)
         {
-            EUsuario Usu = BuscarRai(RaizPrincipal, Document, clav);
-            return Usu;
+            gv.Rows.Clear();
+            MostrarEnGridInOrden(RaizPrincipal, gv);
         }
-        private EUsuario BuscarRai(DNodoArbolUsuario raiz, int id, string clave)
+
+        private void MostrarEnGridInOrden(DNodoArbolUsuario nodo, DataGridView gv)
         {
-            if (raiz == null)
+            if (nodo != null)
             {
-                return null;
-            }
-            else
-            {
-                if (id < raiz.dato.CodigoUsuario)
-                {
-                    return BuscarRai(raiz.izquierda, id, clave);
-                }
-                else if (id > raiz.dato.CodigoUsuario)
-                {
-                    return BuscarRai(raiz.derecha, id, clave);
-                }
-                else
-                {
-                    return raiz.dato;
-                }
+                MostrarEnGridInOrden(nodo.izquierda, gv); // Lado izquierdo (menores)
+
+                gv.Rows.Add(nodo.dato.getdata());         // Nodo actual
+
+                MostrarEnGridInOrden(nodo.derecha, gv);   // Lado derecho (mayores)
             }
         }
     }

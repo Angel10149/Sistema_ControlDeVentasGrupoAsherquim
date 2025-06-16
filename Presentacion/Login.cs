@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DATO;
 using ENTIDADES;
-using LOGICA;
 
 namespace Presentacion
 {
     public partial class Login : Form
     {
+        private DArbolUsuario arbolUsuarios = ArbolUsuarioGlobal.ArbolUsuarios;
         public Login()
         {
             InitializeComponent();
@@ -46,8 +47,8 @@ namespace Presentacion
                 int documento = int.Parse(TxtCodigoUsuario.Text.Trim());//Trim elimina espacios al final y inicio
                 string clave = TxtClave.Text.Trim();
 
-                LUsuario logicaUsuario = new LUsuario();
-                EUsuario usuario = logicaUsuario.BuscarUsuario(documento, clave);
+                //LUsuario logicaUsuario = new LUsuario();
+                EUsuario usuario = arbolUsuarios.BuscarUsuario(documento, clave);
                 if (usuario != null)
                 {
                     Inicio form = new Inicio(usuario); // Si necesitas pasar el usuario
@@ -71,5 +72,6 @@ namespace Presentacion
             //al cerrar inicio muestre el login
             this.Show();
         }
+
     }
 }
