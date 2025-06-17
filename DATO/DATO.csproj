@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="ArbolUsuarioGlobal.cs" />
     <Compile Include="DArbolUsuario.cs" />
+    <Compile Include="DListaPermiso.cs" />
     <Compile Include="DListaRol.cs" />
     <Compile Include="DNodoArbolUsuario.cs" />
+    <Compile Include="NodoListaPermiso.cs" />
     <Compile Include="NodoListaRol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
