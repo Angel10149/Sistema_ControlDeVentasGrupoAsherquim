@@ -13,7 +13,7 @@ namespace DATO
         public NodoListaRol ultimo = null;
 
         // Constructor con roles iniciales
-        public DListaRol()
+        public DListaRol()//costructor
         {
             // Rol Administrador
             ERol rolAdmin = new ERol

@@ -190,23 +190,15 @@ namespace DATO
                 return BuscarMenor(raiz.izquierda);
             }
         }
-        public bool EliminarUsuario(EUsuario usuario, out string mensaje)
+        public void EliminarUsuario(EUsuario usuario)
         {
-            mensaje = "";
-            if (Buscar(usuario.CodigoUsuario) == null)
-            {
-                mensaje = "El Usuario No Existe";
-                return false;
-            }
             EliminarRaiz(ref RaizPrincipal, usuario.CodigoUsuario);
-            mensaje = "Usuario Eliminado Correctamente";
-            return true;
         }
         private void EliminarRaiz(ref DNodoArbolUsuario raiz, int Id)
         {
             if (raiz == null)
             {
-                Console.WriteLine("El Paciente No existe en el Registro");
+                return;
             }
             else
             {
