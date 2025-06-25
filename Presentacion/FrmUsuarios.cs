@@ -95,18 +95,7 @@ namespace Presentacion
 
                 if (idusuariogenerado != 0)
                 {
-                    DgvData.Rows.Add(new object[] {
-                "",
-                idusuariogenerado,
-                objusuario.CodigoUsuario,
-                objusuario.NombreCompleto,
-                objusuario.Correo,
-                objusuario.Clave,
-                ((OpcionCombo)CboRol.SelectedItem).Valor.ToString(),
-                ((OpcionCombo)CboRol.SelectedItem).Texto.ToString(),
-                ((OpcionCombo)CboEstado.SelectedItem).Valor.ToString(),
-                ((OpcionCombo)CboEstado.SelectedItem).Texto.ToString()
-                });
+                    arbolUsuarios.MostrarGrid(DgvData);
                     MessageBox.Show(mensaje);
                     Limpiar();
                 }
@@ -117,14 +106,18 @@ namespace Presentacion
             }
             else
             {
+                //MessageBox.Show("");
                 EUsuario encontrado = arbolUsuarios.Buscar(codigoUsuario);
-                if (encontrado.CodigoUsuario == codigoUsuario)
+                if (encontrado != null)
                 {
-                    MessageBox.Show("El usuario ya existe \nSi nesesita editar presione editar");
+                    MessageBox.Show("El usuario ya existe");
+                    Limpiar();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Si nesesita editar presione editar");
+                    return;
                 }
             }
         }
@@ -193,11 +186,11 @@ namespace Presentacion
                 MessageBox.Show("El campo 'Código Usuario' debe ser un número válido.");
                 return;
             }
-            if (CboRol.SelectedItem == null || CboEstado.SelectedItem == null)
+            /*if (CboRol.SelectedItem == null || CboEstado.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un rol y un estado.");
                 return;
-            }
+            }*/
             var rolSeleccionado = (OpcionCombo)CboRol.SelectedItem;
             var estadoSeleccionado = (OpcionCombo)CboEstado.SelectedItem;
 
@@ -218,14 +211,10 @@ namespace Presentacion
             if (TxtId.Text != "0")
             {
                 EUsuario encontrado = arbolUsuarios.Buscar(codigoUsuario);
-                /*if (encontrado.CodigoUsuario == codigoUsuario)
+                if (TxtId.Text == "1" && Convert.ToInt32(rolSeleccionado.Valor) == 2)
                 {
-                    MessageBox.Show("El usuario ya existe \nSi nesesita editar presione editar");
+                    MessageBox.Show("A este usuario, no se puede editar el rol");
                 }
-                else
-                {
-                    MessageBox.Show("");
-                }*/
                 // Aquí sí se necesita el ID para editar
                 objusuario.IdUsuario = Convert.ToInt32(TxtId.Text);
 
@@ -233,16 +222,7 @@ namespace Presentacion
                 bool resultado = arbolUsuarios.EditarUsuario(objusuario, out mensaje);
                 if (resultado)
                 {
-                    DataGridViewRow row = DgvData.Rows[Convert.ToInt32(TxtIndice.Text)];
-                    row.Cells["Id"].Value = TxtId.Text;
-                    row.Cells["CodigoUsuario"].Value = TxtCodigoUsuario.Text;
-                    row.Cells["NombreCompleto"].Value = TxtNombreCompleto.Text;
-                    row.Cells["Correo"].Value = TxtCorreo.Text;
-                    row.Cells["Clave"].Value = TxtClave.Text;
-                    row.Cells["IdRol"].Value = ((OpcionCombo)CboRol.SelectedItem).Valor.ToString();
-                    row.Cells["Rol"].Value = ((OpcionCombo)CboRol.SelectedItem).Texto.ToString();
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)CboEstado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)CboEstado.SelectedItem).Texto.ToString();
+                    arbolUsuarios.MostrarGrid(DgvData);
                     MessageBox.Show(mensaje);
                     Limpiar();
                 }
@@ -253,46 +233,27 @@ namespace Presentacion
             }
             else
             {
+                MessageBox.Show("Este usuario no esta registrado\nPrecione guardar para registrarlo");
+                return;
             }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            //string mensaje = "";
-
-            // Validar que el campo Código Usuario no esté vacío y sea número
             if (!int.TryParse(TxtCodigoUsuario.Text, out int codigoUsuario))
             {
                 MessageBox.Show("El campo 'Código Usuario' debe ser un número válido.");
                 return;
             }
-
-            if (CboRol.SelectedItem == null || CboEstado.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un rol y un estado.");
-                return;
-            }
-            OpcionCombo rolSeleccionado = (OpcionCombo)CboRol.SelectedItem;
-            OpcionCombo estadoSeleccionado = (OpcionCombo)CboEstado.SelectedItem;
-
-            EUsuario objusuario = new EUsuario()
-            {
-                CodigoUsuario = codigoUsuario,
-                NombreCompleto = TxtNombreCompleto.Text,
-                Correo = TxtCorreo.Text,
-                Clave = TxtClave.Text,
-                Rol = new ERol()
-                {
-                    IdRol = Convert.ToInt32(rolSeleccionado.Valor),
-                    Descripcion = rolSeleccionado.Texto
-                },
-                Estado = Convert.ToInt32(estadoSeleccionado.Valor) == 1
-            };
-
+            int CodigoUsuario = int.Parse(TxtCodigoUsuario.Text);
             if (TxtId.Text != "0")
             {
-                objusuario.IdUsuario = Convert.ToInt32(TxtId.Text);
-                arbolUsuarios.EliminarUsuario(objusuario);
+                if (TxtId.Text == "1")
+                {
+                    MessageBox.Show("Este usuario no se puede eliminar");
+                    return;
+                }
+                arbolUsuarios.EliminarUsuario(CodigoUsuario);
                 MessageBox.Show("Usuario Eliminado Correctamente");
                 arbolUsuarios.MostrarGrid(DgvData);
                 Limpiar();

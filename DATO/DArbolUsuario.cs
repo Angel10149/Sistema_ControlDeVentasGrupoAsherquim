@@ -72,22 +72,21 @@ namespace DATO
             {
                 Mensaje += "Es necesario el documento del usuario\n";
             }
-            if (usuario.NombreCompleto == "")
+            if (usuario.NombreCompleto.Replace(" ", "") == "")//replace elimina los espacios
             {
                 Mensaje += "Es necesario el nombre completo del usuario\n";
             }
-            if (usuario.Clave == "")
+            if (usuario.Clave.Replace(" ", "") == "")
             {
                 Mensaje += "Es necesario la clave del usuario\n";
             }
-            if (Mensaje != "")
+            /*if (Mensaje != "")
             {
                 return 0;
-            }
-            Mensaje = "";
+            }*/
             if (Buscar(usuario.CodigoUsuario) != null)
             {
-                Mensaje = "El usuario ya existe en el sistema.";
+                Mensaje = "En el sistema ya existe un usuario\ncon ese codigo";
                 return 0;
             }
             usuario.IdUsuario = ObtenerSiguienteIdUsuario();
@@ -151,17 +150,22 @@ namespace DATO
             encontrado.Clave = usuario.Clave;
 
             // Buscar rol completo desde lista de roles
-            DListaRol logicaRol = new DListaRol();
-            ERol rolCompleto = logicaRol.BuscarRolPorId(usuario.Rol.IdRol);
-            if (rolCompleto != null)
+            if (usuario.IdUsuario!=1)
             {
-                encontrado.Rol = rolCompleto;
-            }
-            else
-            {
-                encontrado.Rol = new ERol { IdRol = usuario.Rol.IdRol, Descripcion = "Sin rol" };
-            }
+                encontrado.Rol = usuario.Rol;
+                /*
+                DListaRol logicaRol = new DListaRol();
+                ERol rolCompleto = logicaRol.BuscarRolPorId(usuario.Rol.IdRol);
 
+                if (rolCompleto != null)
+                {
+                    encontrado.Rol = rolCompleto;
+                }
+                else
+                {
+                    encontrado.Rol = new ERol { IdRol = usuario.Rol.IdRol, Descripcion = "Sin rol" };
+                }*/
+            }
             encontrado.Estado = usuario.Estado;
 
             mensaje = "Datos del usuario actualizados";
@@ -190,9 +194,9 @@ namespace DATO
                 return BuscarMenor(raiz.izquierda);
             }
         }
-        public void EliminarUsuario(EUsuario usuario)
+        public void EliminarUsuario(int CodigoUsuario)
         {
-            EliminarRaiz(ref RaizPrincipal, usuario.CodigoUsuario);
+            EliminarRaiz(ref RaizPrincipal, CodigoUsuario);
         }
         private void EliminarRaiz(ref DNodoArbolUsuario raiz, int Id)
         {

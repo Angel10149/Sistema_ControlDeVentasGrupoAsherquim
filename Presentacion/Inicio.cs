@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DATO;
 using ENTIDADES;
 
 namespace Presentacion
@@ -16,7 +17,7 @@ namespace Presentacion
         private static EUsuario usuarioActual;
         private static ToolStripMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
-        public Inicio(EUsuario objusuario=null)
+        public Inicio(EUsuario objusuario = null)
         {
             usuarioActual = objusuario;
             InitializeComponent();
@@ -24,7 +25,32 @@ namespace Presentacion
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
+            int idRol = usuarioActual.Rol.IdRol;
+            DListaPermiso permisosRol = new DListaPermiso().ObtenerPermisosPorRol(idRol);
 
+            foreach (ToolStripMenuItem iconmenu in Menu.Items)
+            {
+                bool encontrado = false;
+
+                // Recorrer la lista enlazada circular 
+                NodoListaPermiso actual = permisosRol.primero;
+
+                if (actual != null)
+                {
+                    do
+                    {
+                        if (actual.Dato.NombreMenu == iconmenu.Name)
+                        {
+                            encontrado = true;
+                            break;
+                        }
+                        actual = actual.Siguiente;
+
+                    } while (actual != permisosRol.primero);
+                }
+                iconmenu.Visible = encontrado;
+            }
+            lblUsuario.Text = usuarioActual.NombreCompleto;
         }
         private void AbrirFormulario(ToolStripMenuItem menu, Form formulario)
         {
@@ -57,7 +83,12 @@ namespace Presentacion
             AbrirFormulario((ToolStripMenuItem)sender, new FrmUsuarios());
         }
 
-        private void iconMenuItem6_Click(object sender, EventArgs e)
+        private void MenuMantenedor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuClientes_Click(object sender, EventArgs e)
         {
 
         }

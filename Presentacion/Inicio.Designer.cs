@@ -103,7 +103,7 @@
             this.MenuMantenedor.Size = new System.Drawing.Size(110, 79);
             this.MenuMantenedor.Text = "Mantenedor";
             this.MenuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MenuMantenedor.Click += new System.EventHandler(this.iconMenuItem6_Click);
+            this.MenuMantenedor.Click += new System.EventHandler(this.MenuMantenedor_Click);
             // 
             // MenuVentas
             // 
@@ -146,6 +146,7 @@
             this.MenuClientes.Size = new System.Drawing.Size(80, 79);
             this.MenuClientes.Text = "Clientes";
             this.MenuClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MenuClientes.Click += new System.EventHandler(this.MenuClientes_Click);
             // 
             // MenuProveedores
             // 

@@ -24,8 +24,8 @@ namespace Presentacion
             this.Close();
         }
         private void BtnIngresar_Click(object sender, EventArgs e)
-        {/*
-            Inicio form = new Inicio();
+        {
+            /*Inicio form = new Inicio();
 
             form.Show();//muestre
             this.Hide();//oculta el Login
