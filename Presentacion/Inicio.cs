@@ -92,5 +92,16 @@ namespace Presentacion
         {
 
         }
+
+        private void Contenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmProveedores());
+
+        }
     }
 }
