@@ -58,6 +58,79 @@ namespace Presentacion
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            string mensaje = "";
+
+            // Validar que el campo Código Usuario no esté vacío y sea número
+            if (!int.TryParse(TxtCodigoUsuario.Text, out int codigoUsuario))
+            {
+                MessageBox.Show("El campo 'Código Usuario' debe ser un número válido.");
+                return;
+            }
+            if (CboRol.SelectedItem == null || CboEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un rol y un estado.");
+                return;
+            }
+            var rolSeleccionado = (OpcionCombo)CboRol.SelectedItem;
+            var estadoSeleccionado = (OpcionCombo)CboEstado.SelectedItem;
+
+            EUsuario objusuario = new EUsuario()
+            {
+                CodigoUsuario = codigoUsuario,
+                NombreCompleto = TxtNombreCompleto.Text,
+                Correo = TxtCorreo.Text,
+                Clave = TxtClave.Text,
+                Rol = new ERol()
+                {
+                    IdRol = Convert.ToInt32(rolSeleccionado.Valor),
+                    Descripcion = rolSeleccionado.Texto
+                },
+                Estado = Convert.ToInt32(estadoSeleccionado.Valor) == 1
+            };
+
+            if (TxtId.Text == "0")
+            {
+                //int idusuariogenerado = new DArbolUsuario().RegistrarUsuario(objusuario, out mensaje);
+                int idusuariogenerado = arbolUsuarios.RegistrarUsuario(objusuario, out mensaje);
+
+                if (idusuariogenerado != 0)
+                {
+                    arbolUsuarios.MostrarGrid(DgvData);
+                    MessageBox.Show(mensaje);
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+            else
+            {
+                if (TxtId.Text == "1" && Convert.ToInt32(rolSeleccionado.Valor) == 2)
+                {
+                    MessageBox.Show("A este usuario, no se puede editar el rol");
+                    Limpiar();
+                    return;
+                }
+                // Aquí sí se necesita el ID para editar
+                objusuario.IdUsuario = Convert.ToInt32(TxtId.Text);
+
+                //bool resultado = new DArbolUsuario().EditarUsuario(objusuario, out mensaje);
+                bool resultado = arbolUsuarios.EditarUsuario(objusuario, out mensaje);
+                if (resultado)
+                {
+                    arbolUsuarios.MostrarGrid(DgvData);
+                    MessageBox.Show(mensaje);
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+                Limpiar();
+                return;
+            }
+
         }
         private void Limpiar()
         {
@@ -112,6 +185,10 @@ namespace Presentacion
                     }
                 }
             }
+        }
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)

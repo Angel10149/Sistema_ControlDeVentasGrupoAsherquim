@@ -42,7 +42,7 @@ namespace Presentacion
                 MessageBox.Show("El campo 'Código Usuario' debe ser un número válido.");
                 return;
             }
-            
+
             var estadoSeleccionado = (OpcionCombo)CboEstado.SelectedItem;
 
             EProveedores obJProveedores = new EProveedores()
@@ -165,16 +165,6 @@ namespace Presentacion
             {
                 MessageBox.Show("No se puede Eliminar\nEl Documento no existe!!");
             }
-        }
-
-        private void TxtIndice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -44,7 +44,7 @@
             // TxtClave
             // 
             this.TxtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtClave.Location = new System.Drawing.Point(265, 144);
+            this.TxtClave.Location = new System.Drawing.Point(275, 146);
             this.TxtClave.Margin = new System.Windows.Forms.Padding(2);
             this.TxtClave.Name = "TxtClave";
             this.TxtClave.PasswordChar = '*';
@@ -54,7 +54,7 @@
             // TxtCodigoUsuario
             // 
             this.TxtCodigoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCodigoUsuario.Location = new System.Drawing.Point(265, 80);
+            this.TxtCodigoUsuario.Location = new System.Drawing.Point(275, 82);
             this.TxtCodigoUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCodigoUsuario.Name = "TxtCodigoUsuario";
             this.TxtCodigoUsuario.Size = new System.Drawing.Size(268, 24);
@@ -64,7 +64,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(262, 113);
+            this.label5.Location = new System.Drawing.Point(272, 115);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 18);
@@ -75,7 +75,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(262, 50);
+            this.label4.Location = new System.Drawing.Point(272, 52);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 18);
@@ -86,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(261, 19);
+            this.label3.Location = new System.Drawing.Point(271, 21);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(178, 25);
@@ -99,7 +99,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 246);
+            this.label1.Size = new System.Drawing.Size(248, 246);
             this.label1.TabIndex = 16;
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -107,7 +107,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.DimGray;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 153);
+            this.label2.Location = new System.Drawing.Point(43, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 77);
             this.label2.TabIndex = 17;
@@ -117,13 +117,15 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.Color.DimGray;
+            this.iconPictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.StoreAlt;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 131;
-            this.iconPictureBox1.Location = new System.Drawing.Point(39, 19);
+            this.iconPictureBox1.IconSize = 180;
+            this.iconPictureBox1.Location = new System.Drawing.Point(48, 19);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(166, 131);
+            this.iconPictureBox1.Size = new System.Drawing.Size(135, 138);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox1.TabIndex = 18;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -139,7 +141,7 @@
             this.BtnCancelar.IconColor = System.Drawing.Color.White;
             this.BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCancelar.IconSize = 21;
-            this.BtnCancelar.Location = new System.Drawing.Point(414, 184);
+            this.BtnCancelar.Location = new System.Drawing.Point(424, 186);
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(119, 34);
@@ -162,7 +164,7 @@
             this.BtnIngresar.IconColor = System.Drawing.Color.White;
             this.BtnIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnIngresar.IconSize = 21;
-            this.BtnIngresar.Location = new System.Drawing.Point(266, 184);
+            this.BtnIngresar.Location = new System.Drawing.Point(276, 186);
             this.BtnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(120, 34);
@@ -178,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
-            this.ClientSize = new System.Drawing.Size(570, 246);
+            this.ClientSize = new System.Drawing.Size(575, 246);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnIngresar);
             this.Controls.Add(this.iconPictureBox1);
