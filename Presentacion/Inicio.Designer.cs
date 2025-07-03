@@ -41,6 +41,8 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Contenedor = new System.Windows.Forms.Panel();
+            this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +110,8 @@
             // MenuVentas
             // 
             this.MenuVentas.AutoSize = false;
+            this.MenuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ventaToolStripMenuItem});
             this.MenuVentas.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.MenuVentas.IconChar = FontAwesome.Sharp.IconChar.Tags;
             this.MenuVentas.IconColor = System.Drawing.Color.Black;
@@ -122,6 +126,8 @@
             // MenuCompras
             // 
             this.MenuCompras.AutoSize = false;
+            this.MenuCompras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compraToolStripMenuItem});
             this.MenuCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.MenuCompras.IconChar = FontAwesome.Sharp.IconChar.DollyFlatbed;
             this.MenuCompras.IconColor = System.Drawing.Color.Black;
@@ -224,6 +230,20 @@
             this.Contenedor.TabIndex = 7;
             this.Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.Contenedor_Paint);
             // 
+            // ventaToolStripMenuItem
+            // 
+            this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
+            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.ventaToolStripMenuItem.Text = "Venta";
+            this.ventaToolStripMenuItem.Click += new System.EventHandler(this.ventaToolStripMenuItem_Click);
+            // 
+            // compraToolStripMenuItem
+            // 
+            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.compraToolStripMenuItem.Text = "Compra";
+            this.compraToolStripMenuItem.Click += new System.EventHandler(this.compraToolStripMenuItem_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,5 +282,7 @@
         private FontAwesome.Sharp.IconMenuItem MenuClientes;
         private FontAwesome.Sharp.IconMenuItem MenuProveedores;
         private FontAwesome.Sharp.IconMenuItem MenuUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
     }
 }
