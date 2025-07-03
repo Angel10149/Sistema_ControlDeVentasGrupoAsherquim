@@ -21,7 +21,7 @@ namespace ENTIDADES
         //public string FechaRegistro { get; set; }
         public string[] getdata()
         {
-            string[] data = new string[12];
+            string[] data = new string[8];
             data[0] = ""; // Columna para el botón seleccionar
             data[1] = IdProducto + "";
             data[2] = "";
