@@ -46,7 +46,6 @@ namespace Presentacion
             {
                 int documento = int.Parse(TxtCodigoUsuario.Text.Trim());//Trim elimina espacios al final y inicio
                 string clave = TxtClave.Text.Trim();
-
                 //LUsuario logicaUsuario = new LUsuario();
                 EUsuario usuario = arbolUsuarios.BuscarUsuario(documento, clave);
                 if (usuario != null)
@@ -72,6 +71,5 @@ namespace Presentacion
             //al cerrar inicio muestre el login
             this.Show();
         }
-
     }
 }
