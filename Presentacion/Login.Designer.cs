@@ -48,7 +48,7 @@
             this.TxtClave.Margin = new System.Windows.Forms.Padding(2);
             this.TxtClave.Name = "TxtClave";
             this.TxtClave.PasswordChar = '*';
-            this.TxtClave.Size = new System.Drawing.Size(268, 24);
+            this.TxtClave.Size = new System.Drawing.Size(268, 21);
             this.TxtClave.TabIndex = 13;
             // 
             // TxtCodigoUsuario
@@ -57,7 +57,7 @@
             this.TxtCodigoUsuario.Location = new System.Drawing.Point(275, 82);
             this.TxtCodigoUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCodigoUsuario.Name = "TxtCodigoUsuario";
-            this.TxtCodigoUsuario.Size = new System.Drawing.Size(268, 24);
+            this.TxtCodigoUsuario.Size = new System.Drawing.Size(268, 21);
             this.TxtCodigoUsuario.TabIndex = 12;
             // 
             // label5
@@ -67,7 +67,7 @@
             this.label5.Location = new System.Drawing.Point(272, 115);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 18);
+            this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Contraseña:";
             // 
@@ -78,7 +78,7 @@
             this.label4.Location = new System.Drawing.Point(272, 52);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 18);
+            this.label4.Size = new System.Drawing.Size(95, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Codigo Usuario:";
             // 
@@ -89,7 +89,7 @@
             this.label3.Location = new System.Drawing.Point(271, 21);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 25);
+            this.label3.Size = new System.Drawing.Size(148, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "INICIAR SESION";
             // 
@@ -121,7 +121,7 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.StoreAlt;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 180;
+            this.iconPictureBox1.IconSize = 135;
             this.iconPictureBox1.Location = new System.Drawing.Point(48, 19);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(135, 138);
@@ -177,7 +177,7 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(575, 246);
