@@ -42,13 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArbolClientesGlobal.cs" />
     <Compile Include="ArbolProveedoresGlobal.cs" />
     <Compile Include="ArbolUsuarioGlobal.cs" />
+    <Compile Include="DArbolClientes.cs" />
     <Compile Include="DArbolProveedores.cs" />
     <Compile Include="DArbolUsuario.cs" />
     <Compile Include="DListaPermiso.cs" />
     <Compile Include="DListaRol.cs" />
     <Compile Include="DNodoArbolUsuario.cs" />
+    <Compile Include="NodoArbolCliente.cs" />
     <Compile Include="NodoArbolProveedores.cs" />
     <Compile Include="NodoListaPermiso.cs" />
     <Compile Include="NodoListaRol.cs" />
