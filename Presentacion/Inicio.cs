@@ -90,7 +90,7 @@ namespace Presentacion
 
         private void MenuClientes_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmClientes());
         }
 
         private void Contenedor_Paint(object sender, PaintEventArgs e)
