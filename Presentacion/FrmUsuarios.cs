@@ -66,6 +66,13 @@ namespace Presentacion
                 MessageBox.Show("El campo 'Código Usuario' debe ser un número válido.");
                 return;
             }
+            if (TxtClave.Text != TxtConfirmarClave.Text)
+            {
+                MessageBox.Show("Las contraseñas no coinciden.");
+                TxtClave.Clear();
+                TxtConfirmarClave.Clear();
+                return;
+            }
             if (CboRol.SelectedItem == null || CboEstado.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un rol y un estado.");
