@@ -51,16 +51,20 @@
     <Compile Include="DArbolUsuario.cs" />
     <Compile Include="DGrafoCategoriaProducto.cs" />
     <Compile Include="DListaCategoria.cs" />
+    <Compile Include="DListaCompra.cs" />
     <Compile Include="DListaPermiso.cs" />
     <Compile Include="DListaProducto.cs" />
     <Compile Include="DListaRol.cs" />
+    <Compile Include="DListaVenta.cs" />
     <Compile Include="DNodoArbolUsuario.cs" />
     <Compile Include="NodoArbolCliente.cs" />
     <Compile Include="NodoArbolProveedores.cs" />
     <Compile Include="NodoListaCategoria.cs" />
+    <Compile Include="NodoListaCompra.cs" />
     <Compile Include="NodoListaPermiso.cs" />
     <Compile Include="NodoListaProducto.cs" />
     <Compile Include="NodoListaRol.cs" />
+    <Compile Include="NodoListaVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vertice.cs" />
   </ItemGroup>
