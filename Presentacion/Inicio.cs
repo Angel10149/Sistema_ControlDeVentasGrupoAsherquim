@@ -83,9 +83,24 @@ namespace Presentacion
             AbrirFormulario((ToolStripMenuItem)sender, new FrmUsuarios());
         }
 
-        private void MenuMantenedor_Click(object sender, EventArgs e)
+        private void SubMenuCategoria_Click(object sender, EventArgs e)
         {
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmCategoria());
+        }
 
+        private void SubMenuProducto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmProducto());
+        }
+
+        private void SubMenuRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmVenta());
+        }
+
+        private void SubMenuRegistrarCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra());
         }
 
         private void MenuClientes_Click(object sender, EventArgs e)
@@ -93,25 +108,9 @@ namespace Presentacion
             AbrirFormulario((ToolStripMenuItem)sender, new FrmClientes());
         }
 
-        private void Contenedor_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         private void MenuProveedores_Click(object sender, EventArgs e)
         {
             AbrirFormulario((ToolStripMenuItem)sender, new FrmProveedores());
-
-        }
-
-        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmVenta());
-
-        }
-
-        private void compraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra());
         }
     }
 }
