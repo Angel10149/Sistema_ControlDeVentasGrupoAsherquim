@@ -118,19 +118,57 @@ namespace Presentacion
         }
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            
-            //int Documento = int.Parse(TxtDocumento.Text);
             if (TxtId.Text != "0")
             {
+                EProducto temp = new EProducto()
+                {
+                    IdProducto = Convert.ToInt32(TxtId.Text),
+                    Descripcion = TxtDescripcion.Text,
 
-                //listaproducto.EliminarProductos(Descripcion);
-                MessageBox.Show("Proveedor Eliminado Correctamente");
-                //arbolProveedores.MostrarGrid(DgvData);
+                };
+                listaproducto.Eliminar(temp);
+                MessageBox.Show("Producto Eliminado Correctamente");
+                listaproducto.MostrarGrid(DgvData);
                 Limpiar();
             }
             else
             {
                 MessageBox.Show("No se puede Eliminar\nEl Documento no existe!!");
+            }
+        }
+
+        private void DgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DgvData.Columns[e.ColumnIndex].Name == "btnseleccionar")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    TxtIndice.Text = indice.ToString();
+                    TxtId.Text = DgvData.Rows[indice].Cells["Id"].Value.ToString();
+                    TxtNombre.Text = DgvData.Rows[indice].Cells["Nombre"].Value.ToString();
+                    TxtDescripcion.Text = DgvData.Rows[indice].Cells["Descripcion"].Value.ToString();
+                    TxtCodigo.Text = DgvData.Rows[indice].Cells["Codigo"].Value.ToString();
+                    /*foreach (OpcionCombo oc in CboCategoria.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DgvData.Rows[indice].Cells["Categoria"].Value))
+                        {
+                            int indice_categoria = CboCategoria.Items.IndexOf(oc);
+                            CboCategoria.SelectedIndex = indice_categoria;
+                            break;
+                        }
+                    }*/
+                    foreach (OpcionCombo oc in CboEstado.Items)
+                    {
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DgvData.Rows[indice].Cells["EstadoValor"].Value))
+                        {
+                            int indice_combo = CboEstado.Items.IndexOf(oc);
+                            CboEstado.SelectedIndex = indice_combo;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
