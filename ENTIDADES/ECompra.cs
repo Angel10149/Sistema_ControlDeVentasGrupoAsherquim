@@ -9,6 +9,10 @@ namespace ENTIDADES
     public class ECompra
     {
         public int IdCompra { get; set; }
+        public EUsuario Usuario { get; set; }
+        public EProveedores Proveedor { get; set; }
+        public string NumeroDocumento { get; set; }
+        public decimal MontoTotal { get; set; }
         public string[] getdata()
         {
             string[] data = new string[12];

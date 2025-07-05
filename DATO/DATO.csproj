@@ -49,7 +49,6 @@
     <Compile Include="DArbolClientes.cs" />
     <Compile Include="DArbolProveedores.cs" />
     <Compile Include="DArbolUsuario.cs" />
-    <Compile Include="DGrafoCategoriaProducto.cs" />
     <Compile Include="DListaCategoria.cs" />
     <Compile Include="DListaCompra.cs" />
     <Compile Include="DListaPermiso.cs" />

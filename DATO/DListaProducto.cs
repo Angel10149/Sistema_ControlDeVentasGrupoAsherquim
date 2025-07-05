@@ -22,8 +22,8 @@ namespace DATO
                 IdProducto = 1,
                 Nombre = "P1",
                 Descripcion = "Arroz",
-                //Categoria = new ECategoria { IdCategoria = 1, Descripcion = "A", Estado = true },
-                IdCategoria = 1,
+                Categoria = new ECategoria { IdCategoria = 1, Descripcion = "A", Estado = true },
+                //IdCategoria = 1,
                 Estado = true
             };
 
@@ -33,8 +33,8 @@ namespace DATO
                 IdProducto = 2,
                 Nombre = "P2",
                 Descripcion = "Arina",
-                //Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                IdCategoria = 1,
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                //IdCategoria = 1,
                 Estado = true
             };
             EProducto P3 = new EProducto
@@ -42,8 +42,8 @@ namespace DATO
                 IdProducto = 3,
                 Nombre = "P3",
                 Descripcion = "leche",
-                //Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                IdCategoria = 1,
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                //IdCategoria = 1,
                 Estado = true
             };
             EProducto P4 = new EProducto
@@ -51,8 +51,8 @@ namespace DATO
                 IdProducto = 4,
                 Nombre = "P4",
                 Descripcion = "azucar",
-                //Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                IdCategoria = 2,
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                //IdCategoria = 2,
                 Estado = true
             };
             EProducto P5 = new EProducto
@@ -60,8 +60,8 @@ namespace DATO
                 IdProducto = 5,
                 Nombre = "P5",
                 Descripcion = "Arroz",
-                //Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                IdCategoria = 3,
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                //IdCategoria = 3,
                 Estado = true
             };
             EProducto P6 = new EProducto
@@ -69,8 +69,8 @@ namespace DATO
                 IdProducto = 6,
                 Nombre = "P6",
                 Descripcion = "fideo",
-                //Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                IdCategoria = 3,
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                //IdCategoria = 3,
                 Estado = true
             };
 
@@ -134,24 +134,6 @@ namespace DATO
                 ultimo = nuevo;
             }
         }
-        /*public void Mostrar()
-        {
-            if (primero == null)
-            {
-                Console.WriteLine("No hay canciones agregadas");
-            }
-            else
-            {
-                NodoListaProducto temp = primero;
-                do
-                {
-                    Console.Write(temp.dato);
-                    temp = temp.siguiente;
-                }
-                while (temp != primero);
-            }
-        }*/
-
         public EProducto BuscarProductoPorNombre(string nombre)
         {
             NodoListaProducto temporal = primero;
@@ -214,7 +196,7 @@ namespace DATO
             } while (temp != primero);
             return null;
         }
-        public int ContarProductos()
+        public int ContarTotalProductos()
         {
             int contador = 0;
             if (primero == null)
@@ -239,7 +221,6 @@ namespace DATO
             gv.Rows.Clear();
             MostrarEnGridProducto(primero, gv);
         }
-
         private void MostrarEnGridProducto(NodoListaProducto temp, DataGridView gv)
         {
             if (temp != null)

@@ -12,8 +12,7 @@ namespace ENTIDADES
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        //public ECategoria Categoria { get; set; }
-        public int IdCategoria { get; set; }
+        public ECategoria Categoria { get; set; }
         public int Stock { get; set; }
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
@@ -31,7 +30,7 @@ namespace ENTIDADES
             data[6] = "";// Categoria != null ? Categoria.Descripcion : "Sin categoria";
             data[7] = "";
             data[8] = ""; // EstadoValor
-            data[9] = IdCategoria + "";
+            data[9] = "";
             data[10] = Estado ? "1" : "0"; // EstadoValor
             data[11] = Estado ? "Activo" : "Inactivo";
 
