@@ -56,6 +56,8 @@
     <Compile Include="DListaRol.cs" />
     <Compile Include="DListaVenta.cs" />
     <Compile Include="DNodoArbolUsuario.cs" />
+    <Compile Include="ListaCategoriaGlobal.cs" />
+    <Compile Include="ListaProductoGlobal.cs" />
     <Compile Include="NodoArbolCliente.cs" />
     <Compile Include="NodoArbolProveedores.cs" />
     <Compile Include="NodoListaCategoria.cs" />
