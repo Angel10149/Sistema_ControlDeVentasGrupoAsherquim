@@ -9,7 +9,7 @@ namespace DATO
 {
     public class Vertice
     {
-        public EVerticeDato dato;
+        public int dato;
         //trabajar la lista temp
         public Vertice sig = null;
 
