@@ -22,6 +22,7 @@ namespace Presentacion
 
         private void FrmProveedores_Load(object sender, EventArgs e)
         {
+
             CboEstado.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Activo" });
             CboEstado.Items.Add(new OpcionCombo() { Valor = 0, Texto = "No Activo" });
             CboEstado.DisplayMember = "Texto";//muestra

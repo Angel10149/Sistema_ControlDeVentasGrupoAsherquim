@@ -16,5 +16,15 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCompra_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
