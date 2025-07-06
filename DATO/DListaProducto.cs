@@ -13,68 +13,82 @@ namespace DATO
         public NodoListaProducto primero = null;
         public NodoListaProducto ultimo = null;
 
-        // Constructor con roles iniciales
+        // Constructor con productos iniciales
         public DListaProducto()//costructor
         {
-            // Rol Administrador
             EProducto P1 = new EProducto
             {
                 IdProducto = 1,
+                Codigo = "P001",
                 Nombre = "P1",
                 Descripcion = "Arroz",
                 Categoria = new ECategoria { IdCategoria = 1, Descripcion = "A", Estado = true },
-                //IdCategoria = 1,
+                Stock = 100,
+                PrecioCompra = 1.20m,
+                PrecioVenta = 1.50m,
                 Estado = true
             };
 
-            // Rol Empleado
             EProducto P2 = new EProducto
             {
                 IdProducto = 2,
+                Codigo = "P002",
                 Nombre = "P2",
-                Descripcion = "Arina",
+                Descripcion = "Harina",
                 Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                //IdCategoria = 1,
+                Stock = 80,
+                PrecioCompra = 0.90m,
+                PrecioVenta = 1.20m,
                 Estado = true
             };
             EProducto P3 = new EProducto
             {
                 IdProducto = 3,
+                Codigo = "P003",
                 Nombre = "P3",
-                Descripcion = "leche",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "C", Estado = true },
-                //IdCategoria = 1,
+                Descripcion = "Leche",
+                Categoria = new ECategoria { IdCategoria = 3, Descripcion = "C", Estado = true },
+                Stock = 60,
+                PrecioCompra = 2.00m,
+                PrecioVenta = 2.50m,
                 Estado = true
             };
             EProducto P4 = new EProducto
             {
                 IdProducto = 4,
+                Codigo = "P004",
                 Nombre = "P4",
-                Descripcion = "azucar",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "A", Estado = true },
-                //IdCategoria = 2,
+                Descripcion = "Azúcar",
+                Categoria = new ECategoria { IdCategoria = 1, Descripcion = "A", Estado = true },
+                Stock = 75,
+                PrecioCompra = 1.10m,
+                PrecioVenta = 1.40m,
                 Estado = true
             };
             EProducto P5 = new EProducto
             {
                 IdProducto = 5,
+                Codigo = "P005",
                 Nombre = "P5",
-                Descripcion = "Arroz",
+                Descripcion = "Arroz Integral",
                 Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
-                //IdCategoria = 3,
+                Stock = 90,
+                PrecioCompra = 1.40m,
+                PrecioVenta = 1.80m,
                 Estado = true
             };
             EProducto P6 = new EProducto
             {
                 IdProducto = 6,
+                Codigo = "P006",
                 Nombre = "P6",
-                Descripcion = "fideo",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "C", Estado = true },
-                //IdCategoria = 3,
+                Descripcion = "Fideos",
+                Categoria = new ECategoria { IdCategoria = 3, Descripcion = "C", Estado = true },
+                Stock = 120,
+                PrecioCompra = 0.85m,
+                PrecioVenta = 1.10m,
                 Estado = true
             };
-
-            // Insertar roles
             Agregar(P1);
             Agregar(P2);
             Agregar(P3);
