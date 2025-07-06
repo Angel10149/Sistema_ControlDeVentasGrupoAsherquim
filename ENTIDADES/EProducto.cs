@@ -23,17 +23,16 @@ namespace ENTIDADES
             string[] data = new string[12];
             data[0] = ""; // Columna para el botón seleccionar
             data[1] = IdProducto + "";
-            data[2] = "";
+            data[2] = Codigo;
             data[3] = Nombre;
             data[4] = Descripcion;
-            data[5] = "";// Categoria !=null ? Categoria.IdCategoria.ToString():"0";
-            data[6] = "";// Categoria != null ? Categoria.Descripcion : "Sin categoria";
-            data[7] = "";
-            data[8] = ""; // EstadoValor
-            data[9] = "";
+            data[5] = Categoria !=null ? Categoria.IdCategoria.ToString():"0";
+            data[6] = Categoria != null ? Categoria.Descripcion : "Sin categoria";
+            data[7] = Stock+"";
+            data[8] = PrecioCompra+""; 
+            data[9] = PrecioVenta+"";
             data[10] = Estado ? "1" : "0"; // EstadoValor
             data[11] = Estado ? "Activo" : "Inactivo";
-
             return data;
         }
     }

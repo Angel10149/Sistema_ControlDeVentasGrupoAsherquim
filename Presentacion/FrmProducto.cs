@@ -150,13 +150,24 @@ namespace Presentacion
                     TxtNombre.Text = DgvData.Rows[indice].Cells["Nombre"].Value.ToString();
                     TxtDescripcion.Text = DgvData.Rows[indice].Cells["Descripcion"].Value.ToString();
                     TxtCodigo.Text = DgvData.Rows[indice].Cells["Codigo"].Value.ToString();
-                    /*foreach (OpcionCombo oc in CboCategoria.Items)
+                    foreach (OpcionCombo oc in CboCategoria.Items)
                     {
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DgvData.Rows[indice].Cells["Categoria"].Value))
+                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(DgvData.Rows[indice].Cells["IdCategoria"].Value))
                         {
-                            int indice_categoria = CboCategoria.Items.IndexOf(oc);
-                            CboCategoria.SelectedIndex = indice_categoria;
+                            //int indice_categoria = CboCategoria.Items.IndexOf(oc);
+                            CboCategoria.SelectedIndex = CboCategoria.Items.IndexOf(oc);
                             break;
+                        }
+                    }
+                    /*if (int.TryParse(fila.Cells["Categoria"].Value?.ToString(), out int idCategoria))
+                    {
+                        foreach (OpcionCombo oc in CboCategoria.Items)
+                        {
+                            if (Convert.ToInt32(oc.Valor) == idCategoria)
+                            {
+                                CboCategoria.SelectedIndex = CboCategoria.Items.IndexOf(oc);
+                                break;
+                            }
                         }
                     }*/
                     foreach (OpcionCombo oc in CboEstado.Items)

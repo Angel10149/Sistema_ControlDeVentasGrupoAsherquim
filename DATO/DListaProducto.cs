@@ -42,7 +42,7 @@ namespace DATO
                 IdProducto = 3,
                 Nombre = "P3",
                 Descripcion = "leche",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "C", Estado = true },
                 //IdCategoria = 1,
                 Estado = true
             };
@@ -51,7 +51,7 @@ namespace DATO
                 IdProducto = 4,
                 Nombre = "P4",
                 Descripcion = "azucar",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "A", Estado = true },
                 //IdCategoria = 2,
                 Estado = true
             };
@@ -69,7 +69,7 @@ namespace DATO
                 IdProducto = 6,
                 Nombre = "P6",
                 Descripcion = "fideo",
-                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "B", Estado = true },
+                Categoria = new ECategoria { IdCategoria = 2, Descripcion = "C", Estado = true },
                 //IdCategoria = 3,
                 Estado = true
             };
