@@ -53,6 +53,7 @@
     <Compile Include="DGrafo.cs" />
     <Compile Include="DListaCategoria.cs" />
     <Compile Include="DListaCompra.cs" />
+    <Compile Include="DListaCompraGlobal.cs" />
     <Compile Include="DListaDetalleCompra.cs" />
     <Compile Include="DListaDetalleVenta.cs" />
     <Compile Include="DListaEnlazada.cs" />
@@ -60,9 +61,12 @@
     <Compile Include="DListaProducto.cs" />
     <Compile Include="DListaRol.cs" />
     <Compile Include="DListaVenta.cs" />
+    <Compile Include="DListaVentaGlobal.cs" />
     <Compile Include="DNodoArbolUsuario.cs" />
     <Compile Include="DVertice.cs" />
     <Compile Include="ListaCategoriaGlobal.cs" />
+    <Compile Include="ListaDetalleCompraGlobal.cs" />
+    <Compile Include="ListaDetalleVentaGlobal.cs" />
     <Compile Include="ListaProductoGlobal.cs" />
     <Compile Include="NodoArbolCliente.cs" />
     <Compile Include="NodoArbolProveedores.cs" />
