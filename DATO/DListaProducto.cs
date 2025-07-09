@@ -167,6 +167,28 @@ namespace DATO
             } while (temporal != primero);
             return null;
         }
+        public bool ActualizarStockYPrecios(int idProducto, int cantidad, decimal precioCompra, decimal precioVenta)
+        {
+            NodoListaProducto temp = primero;
+
+            if (temp == null)
+                return false;
+
+            do
+            {
+                if (temp.dato.IdProducto == idProducto)
+                {
+                    temp.dato.Stock += cantidad;
+                    temp.dato.PrecioCompra = precioCompra;
+                    temp.dato.PrecioVenta = precioVenta;
+                    return true;
+                }
+                temp = temp.siguiente;
+            }
+            while (temp != primero);
+
+            return false;
+        }
         public EProducto Eliminar(EProducto Prod)
         {
             if (primero == null)

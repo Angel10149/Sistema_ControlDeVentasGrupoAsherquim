@@ -44,6 +44,8 @@
     <Compile Include="ECategoria.cs" />
     <Compile Include="ECliente.cs" />
     <Compile Include="ECompra.cs" />
+    <Compile Include="EDetalleCompra.cs" />
+    <Compile Include="EDetalleVenta.cs" />
     <Compile Include="EPermiso.cs" />
     <Compile Include="EProducto.cs" />
     <Compile Include="EProveedores.cs" />
