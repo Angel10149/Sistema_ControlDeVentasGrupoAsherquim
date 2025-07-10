@@ -28,20 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtIdProveedor = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtdocproveedor = new System.Windows.Forms.TextBox();
-            this.BtnBuscarProveedor = new FontAwesome.Sharp.IconButton();
             this.txtnombreproveedor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtIdProducto = new System.Windows.Forms.TextBox();
-            this.BtnBuscarProducto = new FontAwesome.Sharp.IconButton();
             this.TxtCodProducto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtproducto = new System.Windows.Forms.TextBox();
@@ -64,6 +62,8 @@
             this.txttotalpagar = new System.Windows.Forms.TextBox();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.BtnAgregarProducto = new FontAwesome.Sharp.IconButton();
+            this.BtnBuscarProducto = new FontAwesome.Sharp.IconButton();
+            this.BtnBuscarProveedor = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtcantidad)).BeginInit();
@@ -120,6 +120,7 @@
             this.TxtIdProveedor.Name = "TxtIdProveedor";
             this.TxtIdProveedor.Size = new System.Drawing.Size(41, 24);
             this.TxtIdProveedor.TabIndex = 88;
+            this.TxtIdProveedor.Visible = false;
             // 
             // label14
             // 
@@ -142,21 +143,6 @@
             this.txtdocproveedor.ReadOnly = true;
             this.txtdocproveedor.Size = new System.Drawing.Size(177, 24);
             this.txtdocproveedor.TabIndex = 85;
-            // 
-            // BtnBuscarProveedor
-            // 
-            this.BtnBuscarProveedor.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.BtnBuscarProveedor.IconColor = System.Drawing.Color.Black;
-            this.BtnBuscarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscarProveedor.IconSize = 18;
-            this.BtnBuscarProveedor.Location = new System.Drawing.Point(199, 44);
-            this.BtnBuscarProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscarProveedor.Name = "BtnBuscarProveedor";
-            this.BtnBuscarProveedor.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.BtnBuscarProveedor.Size = new System.Drawing.Size(49, 28);
-            this.BtnBuscarProveedor.TabIndex = 87;
-            this.BtnBuscarProveedor.UseVisualStyleBackColor = true;
-            this.BtnBuscarProveedor.Click += new System.EventHandler(this.BtnBuscarProveedor_Click);
             // 
             // txtnombreproveedor
             // 
@@ -211,21 +197,7 @@
             this.TxtIdProducto.Name = "TxtIdProducto";
             this.TxtIdProducto.Size = new System.Drawing.Size(41, 22);
             this.TxtIdProducto.TabIndex = 0;
-            // 
-            // BtnBuscarProducto
-            // 
-            this.BtnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.BtnBuscarProducto.IconColor = System.Drawing.Color.Black;
-            this.BtnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscarProducto.IconSize = 18;
-            this.BtnBuscarProducto.Location = new System.Drawing.Point(199, 50);
-            this.BtnBuscarProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscarProducto.Name = "BtnBuscarProducto";
-            this.BtnBuscarProducto.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.BtnBuscarProducto.Size = new System.Drawing.Size(49, 28);
-            this.BtnBuscarProducto.TabIndex = 2;
-            this.BtnBuscarProducto.UseVisualStyleBackColor = true;
-            this.BtnBuscarProducto.Click += new System.EventHandler(this.BtnBuscarProducto_Click);
+            this.TxtIdProducto.Visible = false;
             // 
             // TxtCodProducto
             // 
@@ -340,15 +312,15 @@
             // 
             this.dgvdata.AllowUserToAddRows = false;
             this.dgvdata.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -364,9 +336,9 @@
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.RowTemplate.Height = 28;
             this.dgvdata.Size = new System.Drawing.Size(876, 276);
             this.dgvdata.TabIndex = 202;
@@ -493,6 +465,36 @@
             this.BtnAgregarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnAgregarProducto.UseVisualStyleBackColor = true;
             this.BtnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
+            // 
+            // BtnBuscarProducto
+            // 
+            this.BtnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.BtnBuscarProducto.IconColor = System.Drawing.Color.Black;
+            this.BtnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscarProducto.IconSize = 18;
+            this.BtnBuscarProducto.Location = new System.Drawing.Point(199, 50);
+            this.BtnBuscarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBuscarProducto.Name = "BtnBuscarProducto";
+            this.BtnBuscarProducto.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.BtnBuscarProducto.Size = new System.Drawing.Size(49, 28);
+            this.BtnBuscarProducto.TabIndex = 2;
+            this.BtnBuscarProducto.UseVisualStyleBackColor = true;
+            this.BtnBuscarProducto.Click += new System.EventHandler(this.BtnBuscarProducto_Click);
+            // 
+            // BtnBuscarProveedor
+            // 
+            this.BtnBuscarProveedor.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.BtnBuscarProveedor.IconColor = System.Drawing.Color.Black;
+            this.BtnBuscarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscarProveedor.IconSize = 18;
+            this.BtnBuscarProveedor.Location = new System.Drawing.Point(199, 44);
+            this.BtnBuscarProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBuscarProveedor.Name = "BtnBuscarProveedor";
+            this.BtnBuscarProveedor.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.BtnBuscarProveedor.Size = new System.Drawing.Size(49, 28);
+            this.BtnBuscarProveedor.TabIndex = 87;
+            this.BtnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.BtnBuscarProveedor.Click += new System.EventHandler(this.BtnBuscarProveedor_Click);
             // 
             // FrmCompra
             // 

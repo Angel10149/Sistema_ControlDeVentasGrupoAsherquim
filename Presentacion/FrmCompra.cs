@@ -15,10 +15,13 @@ namespace Presentacion
 {
     public partial class FrmCompra : Form
     {
-        private EUsuario Usuario;
+        private EUsuario Usuarios;
+        private DListaProducto ListaProductos = ListaProductoGlobal.listaproducto;
+        private DListaDetalleCompra ListaDetalleCompra = ListaDetalleCompraGlobal.ListaDetalleCompra;
+        private DListaCompra ListaCompras = DListaCompraGlobal.listaCompra;
         public FrmCompra(EUsuario UsuarioIniciado = null)
         {
-            Usuario = UsuarioIniciado;
+            Usuarios = UsuarioIniciado;
             InitializeComponent();
         }
         private void FrmCompra_Load(object sender, EventArgs e)
@@ -213,6 +216,83 @@ namespace Presentacion
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
+            if (dgvdata.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            //Crear compra 
+            ECompra compra = new ECompra
+            {
+                Usuario = Usuarios,
+                Proveedor = new EProveedores
+                {
+                    IdProveedor = Convert.ToInt32(TxtIdProveedor.Text),
+                    Documento = int.Parse(txtdocproveedor.Text),  // ← Esto es necesario
+                    RazonSocial = txtnombreproveedor.Text
+                },
+                MontoTotal = 0m
+            };
+
+            // Registrar la compra para obtener el ID
+            int idCompra = ListaCompras.RegistarCompra(compra);
+
+            // Generar Número de Documento en base al ID
+            compra.NumeroDocumento = idCompra.ToString("D7"); // D7 = 7 dígitos con ceros a la izquierda
+
+            decimal total = 0m;//m indica q es decimal
+
+            //Registrar cada producto en la lista de detalles
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                int idProducto = Convert.ToInt32(row.Cells["IdProducto"].Value);
+                string nombreProducto = row.Cells["Producto"].Value.ToString();
+                int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                decimal precioCompra = Convert.ToDecimal(row.Cells["PrecioCompra"].Value);
+                decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
+                decimal subtotal = Convert.ToDecimal(row.Cells["SubTotal"].Value);
+
+                // Actualizar stock y precios del producto
+                bool actualizado = ListaProductos.ActualizarStockYPrecios(idProducto, cantidad, precioCompra, precioVenta);
+                if (!actualizado)
+                {
+                    MessageBox.Show($"No se pudo actualizar el producto con ID {idProducto}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    continue;
+                }
+
+                //Buscar el producto completo para vincularlo al detalle
+                EProducto producto = ListaProductos.BuscarProductoPorNombre(nombreProducto);
+                if (producto == null)
+                {
+                    MessageBox.Show($"Producto con nombre {nombreProducto} no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    continue;
+                }
+
+                //Crear detalle y registrar
+                EDetalleCompra detalle = new EDetalleCompra
+                {
+                    IdCompra = idCompra,
+                    Producto = producto,
+                    PrecioCompra = precioCompra,
+                    PrecioVenta = precioVenta,
+                    Cantidad = cantidad,
+                    MontoTotal = subtotal
+                };
+
+                ListaDetalleCompra.RegistarCompra(detalle);
+                total += subtotal;
+            }
+
+            //Actualizar el monto total de la compra
+            compra.MontoTotal = total;
+
+            //Confirmación al usuario
+            MessageBox.Show($"Compra registrada exitosamente\nDocumento: {compra.NumeroDocumento}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Limpiar la interfaz
+            dgvdata.Rows.Clear();
+            txttotalpagar.Text = "0.00";
         }
     }
 }

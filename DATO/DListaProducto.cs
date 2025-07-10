@@ -189,6 +189,33 @@ namespace DATO
 
             return false;
         }
+        public bool RestarStockProducto(int idProducto, int cantidad)
+        {
+            NodoListaProducto temp = primero;
+
+            if (temp == null)
+                return false;
+
+            do
+            {
+                if (temp.dato.IdProducto == idProducto)
+                {
+                    if (temp.dato.Stock >= cantidad)
+                    {
+                        temp.dato.Stock -= cantidad;
+                        return true;
+                    }
+                    else
+                    {
+                        return false; // No hay suficiente stock
+                    }
+                }
+                temp = temp.siguiente;
+            }
+            while (temp != primero);
+
+            return false;
+        }
         public EProducto Eliminar(EProducto Prod)
         {
             if (primero == null)

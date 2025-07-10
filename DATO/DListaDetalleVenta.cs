@@ -102,50 +102,6 @@ namespace DATO
             } while (temporal != primero);
             return null;
         }
-        /*
-        public EDetalleVenta Eliminar(EDetalleVenta Compr)
-        {
-            if (primero == null)
-            {
-                //Console.WriteLine("No existe la categoria");
-                return null;
-            }
-            NodoDetalleVenta temp = primero;
-
-            do
-            {
-                if (temp.dato.NumeroDocumento.ToLower() == Compr.NumeroDocumento.ToLower())
-                {
-                    if (temp == primero && temp == ultimo)
-                    {
-                        primero = null;
-                        ultimo = null;
-                        //actual = null;//general
-                    }
-                    else if (temp == primero)
-                    {
-                        primero = primero.siguiente;
-                        primero.anterior = ultimo;
-                        ultimo.siguiente = primero;
-                    }
-                    else if (temp == ultimo)
-                    {
-                        ultimo = ultimo.anterior;
-                        ultimo.siguiente = primero;
-                        primero.anterior = ultimo;
-                    }
-                    else
-                    {
-                        temp.anterior.siguiente = temp.siguiente;
-                        temp.siguiente.anterior = temp.anterior;//faltaba el .anterior
-                    }
-                    //Console.WriteLine("Categoria: " + nombre + " eliminada!");
-                    return Compr;
-                }
-                temp = temp.siguiente;
-            } while (temp != primero);
-            return null;
-        }*/
         public int ContarCompras()
         {
             int contador = 0;
@@ -169,9 +125,9 @@ namespace DATO
         public void MostrarGrid(DataGridView gv)
         {
             gv.Rows.Clear();
-            MostrarEnGridCompra(primero, gv);
+            MostrarEnGridVenta(primero, gv);
         }
-        private void MostrarEnGridCompra(NodoDetalleVenta temp, DataGridView gv)
+        private void MostrarEnGridVenta(NodoDetalleVenta temp, DataGridView gv)
         {
             if (temp != null)
             {
@@ -185,5 +141,43 @@ namespace DATO
                 while (temp != primero);
             }
         }
+        public void MostrarDetallesPorIdVenta(int idVenta, DataGridView gv)
+        {
+            gv.Rows.Clear();
+
+            if (primero == null)
+                return;
+
+            NodoDetalleVenta actual = primero;
+            do
+            {
+                if (actual.dato.IdVenta == idVenta)
+                {
+                    gv.Rows.Add(actual.dato.getdata());
+                }
+                actual = actual.siguiente;
+            } while (actual != primero);
+        }
+        public void MostrarDetallesPorDocumento(string documento, DataGridView gv)
+        {
+            gv.Rows.Clear();
+
+            if (primero == null)
+                return;
+
+            if (!int.TryParse(documento.TrimStart('0'), out int idCompra))
+                return; // Documento inválido
+
+            NodoDetalleVenta actual = primero;
+            do
+            {
+                if (actual.dato.IdVenta == idCompra)
+                {
+                    gv.Rows.Add(actual.dato.getdata());
+                }
+                actual = actual.siguiente;
+            } while (actual != primero);
+        }
+
     }
 }

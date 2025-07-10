@@ -100,7 +100,7 @@ namespace Presentacion
 
         private void SubMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra());
+            AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra(usuarioActual));
         }
 
         private void MenuClientes_Click(object sender, EventArgs e)
@@ -111,6 +111,26 @@ namespace Presentacion
         private void MenuProveedores_Click(object sender, EventArgs e)
         {
             AbrirFormulario((ToolStripMenuItem)sender, new FrmProveedores());
+        }
+
+        private void SubMenuDetalleCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new DetalleCompra());
+        }
+
+        private void Inventario_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new Inventario());
+        }
+
+        private void SubMenuDetalleVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new DetalleVenta());
+        }
+
+        private void MenuDeliveri_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((ToolStripMenuItem)sender, new Deliveri());
         }
     }
 }

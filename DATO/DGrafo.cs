@@ -77,23 +77,9 @@ namespace DATO
             }
             cantidadVertices++;
         }
-        //mostrar
-        public void Mostrar()
-        {
-            DVertice temp = inicio_lista;
-            while (temp != null)
-            {
-                //Console.WriteLine(temp.dato);
-                temp = temp.sig;
-            }
-        }
-        //METODOS PARA MATRIZ 
         public void llenarMatriz()
         {
-            int n = 0;//si tiene conexion// si= 1 no=0 
-            //int contador = 0;//columnas
-            //int temp = 1;//filas
-            //Random random = new Random();
+            int n = 0;
             for (int i = 0; i < Matriz_Vertice.GetLength(0); i++)
             {
                 for (int j = 0; j < Matriz_Vertice.GetLength(1); j++)
@@ -101,46 +87,44 @@ namespace DATO
                     if (i == 0)
                     {
                         if (j == 0) { n = 0; }
-                        else if (j == 1) { n = 1; }
-                        else if (j == 2) { n = 0; }
+                        else if (j == 1) { n = 0; }
+                        else if (j == 2) { n = 1; }
                         else if (j == 3) { n = 0; }
-                        else if (j == 4) { n = 0; }
-                        //else { n = 1; }
+                        else if (j == 4) { n = 1; }
                     }
                     else if (i == 1)
                     {
-                        if (j == 0) { n = 0; }
+                        if (j == 0) { n = 1; }
                         else if (j == 1) { n = 0; }
-                        else if (j == 2) { n = 1; }
-                        else if (j == 3) { n = 1; }
+                        else if (j == 2) { n = 0; }
+                        else if (j == 3) { n = 0; }
                         else if (j == 4) { n = 0; }
                     }
                     else if (i == 2)
                     {
                         if (j == 0) { n = 0; }
-                        else if (j == 1) { n = 0; }
-                        else if (j == 2) { n = 0; }
-                        else if (j == 3) { n = 0; }
-                        else if (j == 4) { n = 1; }
-                    }
-                    else if (i == 3)
-                    {
-                        if (j == 0) { n = 0; }
-                        else if (j == 1) { n = 0; }
-                        else if (j == 2) { n = 0; }
-                        else if (j == 3) { n = 0; }
-                        else if (j == 4) { n = 1; }
-                    }
-                    else if (i == 4)
-                    {
-                        if (j == 0) { n = 0; }
-                        else if (j == 1) { n = 0; }
+                        else if (j == 1) { n = 1; }
                         else if (j == 2) { n = 0; }
                         else if (j == 3) { n = 0; }
                         else if (j == 4) { n = 0; }
                     }
-                    //contador++;
-                    Matriz_Vertice[i, j] = n;// random.Next(0, 2);
+                    else if (i == 3)
+                    {
+                        if (j == 0) { n = 1; }
+                        else if (j == 1) { n = 0; }
+                        else if (j == 2) { n = 1; }
+                        else if (j == 3) { n = 0; }
+                        else if (j == 4) { n = 0; }
+                    }
+                    else if (i == 4)
+                    {
+                        if (j == 0) { n = 0; }
+                        else if (j == 1) { n = 1; }
+                        else if (j == 2) { n = 0; }
+                        else if (j == 3) { n = 1; }
+                        else if (j == 4) { n = 0; }
+                    }
+                    Matriz_Vertice[i, j] = n;
                 }
             }
         }
@@ -154,66 +138,15 @@ namespace DATO
                     // Sin conexión por defecto
                 }
             }
-            Matriz_Costos[0, 1] = 3;
-            Matriz_Costos[1, 2] = 4;
-            Matriz_Costos[1, 3] = 6;
-            Matriz_Costos[2, 4] = 2;
-            Matriz_Costos[3, 4] = 3;
-        }
-        public void mostrarMatrizcosto()
-        {
-            DVertice temp = inicio_lista;
-            //Console.Write("\t\t");
-            //Console.ForegroundColor = ConsoleColor.DarkGreen;
-            while (temp != null)
-            {
-                Console.Write(temp.dato + "\t");
-                temp = temp.sig;
-            }
-            //Console.WriteLine();
-            //Console.ResetColor();
+            Matriz_Costos[0, 2] = 3;
+            Matriz_Costos[0, 4] = 4;
+            Matriz_Costos[1, 0] = 6;
+            Matriz_Costos[2, 1] = 2;
+            Matriz_Costos[3, 0] = 3;
+            Matriz_Costos[3, 2] = 6;
+            Matriz_Costos[4, 1] = 2;
+            Matriz_Costos[4, 3] = 3;
 
-            temp = inicio_lista;
-            for (int i = 0; i < Matriz_Costos.GetLength(0); i++)
-            {
-               //Console.ForegroundColor = ConsoleColor.Green;
-               //Console.Write("Costo. " + temp.dato + "\t");
-                //Console.ResetColor();
-                for (int j = 0; j < Matriz_Costos.GetLength(1); j++)
-                {
-                    //Console.Write(Matriz_Costos[i, j] + "\t");
-
-                }
-                //Console.WriteLine();
-                temp = temp.sig;
-            }
-        }
-        public void mostrarMatriz()
-        {
-            DVertice temp = inicio_lista;
-            //Console.Write("\t\t");
-            //Console.ForegroundColor = ConsoleColor.DarkBlue;
-            while (temp != null)
-            {
-                //Console.Write(temp.dato + "\t");
-                temp = temp.sig;
-            }
-            //Console.WriteLine();
-            //Console.ResetColor();
-
-            temp = inicio_lista;
-            for (int i = 0; i < Matriz_Vertice.GetLength(0); i++)
-            {
-               // Console.ForegroundColor = ConsoleColor.Blue;
-                //Console.Write("DVertice. " + temp.dato + "\t");
-                //Console.ResetColor();
-                for (int j = 0; j < Matriz_Vertice.GetLength(1); j++)
-                {
-                    //Console.Write(Matriz_Vertice[i, j] + "\t");
-                }
-                //Console.WriteLine();
-                temp = temp.sig;
-            }
         }
         //METODOS DE GRAFOS
         public void crearGrafo()
@@ -229,29 +162,39 @@ namespace DATO
                         //union
                         DArista nuevo = new DArista();
                         nuevo.destino = tempDestino;
-                        //Console.WriteLine("ingrese el costo desde {0} hasta {1}", tempOrigen.dato, tempDestino.dato);
-                        //nuevo.costo = int.Parse(Console.ReadLine());
-                        //int costo = 0;
-                        if (tempOrigen.dato == "A" && tempDestino.dato == "B")
+                        if (tempOrigen.dato == "A" && tempDestino.dato == "C")
                         {
                             nuevo.costo = 3;
                         }
-                        if (tempOrigen.dato == "B" && tempDestino.dato == "C")
+                        if (tempOrigen.dato == "A" && tempDestino.dato == "E")
                         {
                             nuevo.costo = 4;
                         }
-                        if (tempOrigen.dato == "B" && tempDestino.dato == "D")
+                        if (tempOrigen.dato == "B" && tempDestino.dato == "A")
                         {
                             nuevo.costo = 6;
                         }
-                        if (tempOrigen.dato == "C" && tempDestino.dato == "E")
+                        if (tempOrigen.dato == "C" && tempDestino.dato == "B")
                         {
                             nuevo.costo = 2;
                         }
-                        if (tempOrigen.dato == "D" && tempDestino.dato == "E")
+                        if (tempOrigen.dato == "D" && tempDestino.dato == "A")
                         {
                             nuevo.costo = 3;
                         }
+                        if (tempOrigen.dato == "D" && tempDestino.dato == "C")
+                        {
+                            nuevo.costo = 6;
+                        }
+                        if (tempOrigen.dato == "E" && tempDestino.dato == "B")
+                        {
+                            nuevo.costo = 2;
+                        }
+                        if (tempOrigen.dato == "E" && tempDestino.dato == "D")
+                        {
+                            nuevo.costo = 3;
+                        }
+
 
                         if (tempOrigen.listaAristas == null)
                         {
@@ -274,58 +217,6 @@ namespace DATO
             }
         }
 
-        public void recorrerGrafo(DVertice actual, ref int total)
-        {
-            //Console.Clear();
-            //Console.WriteLine("Recorrido del grafo");
-            string vertice = "";
-            if (actual.dato == "A")
-            {
-                vertice = "Plaza de Armas";
-            }
-            if (actual.dato == "B")
-            {
-                vertice = "Avenida Perú";
-            }
-            if (actual.dato == "C")
-            {
-                vertice = "La Paz";
-            }
-            if (actual.dato == "D")
-            {
-                vertice = "Avenida Industrial";
-            }
-            if (actual.dato == "E")
-            {
-                vertice = "Salida";
-            }
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("vertice actual:" + vertice);//15
-            //Console.ResetColor();
-            actual.MostrarArista();
-            //Console.WriteLine("0.Salir");
-            //Console.WriteLine("ingrese una opcion");
-            int opcion = int.Parse(Console.ReadLine());
-
-            if (opcion != 0)
-            {
-                DArista temp = actual.listaAristas;
-
-                for (int i = 1; i < opcion; i++)
-                {
-                    temp = temp.sigArista;
-                }
-                total += temp.costo;
-                recorrerGrafo(temp.destino, ref total);
-            }
-            else
-            {
-                //Console.WriteLine("Costo Total: " + total);
-                return;
-            }
-            //Console.ReadKey();
-        }
-
         public DVertice Buscar(string ubicacion)
         {
 
@@ -341,8 +232,9 @@ namespace DATO
             return null;
         }
 
-        public void Dijkstra(string origen, string destino)
+        public int Dijkstra(string origen, string destino)
         {
+            /*
             // Encontrar los vértices correspondientes al origen y destino
             DVertice vOrigen = Buscar(origen);
             DVertice vDestino = Buscar(destino);
@@ -411,7 +303,7 @@ namespace DATO
             // Mostrar el resultado final
             if (listaDistancias.ObtenerNodo(vDestino).costo == int.MaxValue)
             {
-
+                return;
                 //Console.WriteLine("No se puede encontrar un camino hacia el vértice destino.");
             }
             else
@@ -430,7 +322,53 @@ namespace DATO
                 }
                // Console.WriteLine(camino);
                 //Console.WriteLine("Costo total: " + listaDistancias.ObtenerNodo(vDestino).costo);
+            }*/
+            DVertice vOrigen = Buscar(origen);
+            DVertice vDestino = Buscar(destino);
+
+            if (vOrigen == null || vDestino == null)
+            {
+                return -1; // Retorna -1 si no existe el vértice
             }
+
+            ListaEnlazadaDistancias listaDistancias = new ListaEnlazadaDistancias();
+            DListaEnlazada visitados = new DListaEnlazada();
+
+            DVertice actual = inicio_lista;
+            while (actual != null)
+            {
+                int distanciaInicial = (actual == vOrigen) ? 0 : int.MaxValue;
+                listaDistancias.Agregar(actual, distanciaInicial, null);
+                actual = actual.sig;
+            }
+
+            while (visitados.cantidadVisitados < cantidadVertices)
+            {
+                var verticeActual = ObtenerVNoVisitadoConMenorDistancia(listaDistancias, visitados);
+                if (verticeActual == null)
+                {
+                    return -1;
+                }
+
+                visitados.Agregar(verticeActual.vertice);
+
+                DArista arista = verticeActual.vertice.listaAristas;
+                while (arista != null)
+                {
+                    var nodoDestino = listaDistancias.ObtenerNodo(arista.destino);
+                    int nuevadistancia = verticeActual.costo + arista.costo;
+
+                    if (nuevadistancia < nodoDestino.costo)
+                    {
+                        nodoDestino.costo = nuevadistancia;
+                        nodoDestino.previo = verticeActual.vertice;
+                    }
+                    arista = arista.sigArista;
+                }
+            }
+
+            int costoFinal = listaDistancias.ObtenerNodo(vDestino).costo;
+            return costoFinal == int.MaxValue ? -1 : costoFinal;
         }
 
         // Verifica si el vértice no está en la lista de visitados y si es el nodo con menor costo encontrado

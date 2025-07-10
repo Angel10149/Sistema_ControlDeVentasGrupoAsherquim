@@ -63,6 +63,18 @@ namespace DATO
                 Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
                 NombreMenu = "MenuReportes",
             });
+            Agregar(new EPermiso
+            {
+                IdPermiso = 8,
+                Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
+                NombreMenu = "MenuDeliveri",
+            });
+            Agregar(new EPermiso
+            {
+                IdPermiso = 9,
+                Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
+                NombreMenu = "MenuInventario",
+            });
         }
 
         public void AgregarPermisosEmpleado()
@@ -71,30 +83,42 @@ namespace DATO
 
             Agregar(new EPermiso
             {
-                IdPermiso = 8,
+                IdPermiso = 10,
                 Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
                 NombreMenu = "MenuVentas",
             });
 
             Agregar(new EPermiso
             {
-                IdPermiso = 9,
+                IdPermiso = 11,
                 Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
                 NombreMenu = "MenuCompras",
             });
 
             Agregar(new EPermiso
             {
-                IdPermiso = 10,
+                IdPermiso = 12,
                 Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
                 NombreMenu = "MenuClientes",
             });
 
             Agregar(new EPermiso
             {
-                IdPermiso = 11,
+                IdPermiso = 13,
                 Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
                 NombreMenu = "MenuProveedores",
+            });
+            Agregar(new EPermiso
+            {
+                IdPermiso = 14,
+                Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
+                NombreMenu = "MenuDeliveri",
+            });
+            Agregar(new EPermiso
+            {
+                IdPermiso = 15,
+                Rol = new ERol { IdRol = idRol, Descripcion = "ADMINISTRADOR" },
+                NombreMenu = "MenuInventario",
             });
         }
         private void Agregar(EPermiso permiso)

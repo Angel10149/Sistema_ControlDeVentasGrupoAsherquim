@@ -10,23 +10,28 @@ namespace ENTIDADES
     {
         public int IdVentas { get; set;}
         public EUsuario Usuario { get; set; }
+        public ECliente Cliente { get; set; }
+        public string NumeroDocumento { get; set; }
         public string DocumentoCliente { get; set; }
-        public string NombreCliente { get; set; }
         public decimal MontoPgo { get; set; }
         public decimal MontoCambio { get; set; }
         public decimal MontoTotal { get; set; }
         public string[] getdata()
         {
-            string[] data = new string[8];
+            string[] data = new string[12];
             data[0] = ""; // Columna para el botón seleccionar
             data[1] = IdVentas + "";
-            data[2] = "";
-            data[3] = DocumentoCliente;
-            data[4] = NombreCliente;
-            data[5] = MontoPgo + "";
-            data[6] = MontoCambio + "";
-            data[7] = MontoTotal + "";
+            data[2] = (Usuario?.IdUsuario ?? 0) + "";
+            data[3] = Usuario?.NombreCompleto ?? "Sin Usuario";
+            data[4] = (Cliente?.IdCliente ?? 0).ToString();
+            data[5] = Cliente?.NombreCompleto ?? "Sin cliente";
+            data[6] = NumeroDocumento;
+            data[7] = DocumentoCliente;
+            data[8] = MontoPgo + "";
+            data[9] = MontoCambio + "";
+            data[10] = MontoTotal + "";
             return data;
         }
+
     }
 }

@@ -64,7 +64,7 @@ namespace DATO
                 ultimo = nuevo;
             }
         }
-        public ECompra BuscarCompraPorNombre(string Documento)
+        public ECompra BuscarCompraPorDocumento(string Documento)
         {
             NodoListaCompra temporal = primero;
 

@@ -268,6 +268,7 @@
             this.TxtId.Size = new System.Drawing.Size(32, 22);
             this.TxtId.TabIndex = 123;
             this.TxtId.Text = "0";
+            this.TxtId.Visible = false;
             // 
             // label10
             // 
@@ -291,6 +292,7 @@
             this.TxtIndice.Size = new System.Drawing.Size(32, 22);
             this.TxtIndice.TabIndex = 124;
             this.TxtIndice.Text = "-1";
+            this.TxtIndice.Visible = false;
             // 
             // label9
             // 

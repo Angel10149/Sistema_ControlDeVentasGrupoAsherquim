@@ -53,6 +53,30 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deliveri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deliveri.Designer.cs">
+      <DependentUpon>Deliveri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleCompra.Designer.cs">
+      <DependentUpon>DetalleCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +125,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +151,18 @@
     <Compile Include="Proveedor.Designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deliveri.resx">
+      <DependentUpon>Deliveri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleCompra.resx">
+      <DependentUpon>DetalleCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
