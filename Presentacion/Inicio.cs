@@ -17,6 +17,7 @@ namespace Presentacion
         private static EUsuario usuarioActual;
         private static ToolStripMenuItem MenuActivo = null;
         private static Form FormularioActivo = null;
+        private static ToolStripMenuItem SubMenuActivo = null;
         public Inicio(EUsuario objusuario = null)
         {
             usuarioActual = objusuario;
@@ -52,8 +53,9 @@ namespace Presentacion
             }
             lblUsuario.Text = usuarioActual.NombreCompleto;
         }
-        private void AbrirFormulario(ToolStripMenuItem menu, Form formulario)
+        private void AbrirFormulario(ToolStripMenuItem menu, ToolStripMenuItem subMenu, Form formulario)
         {
+            /*
             if (MenuActivo != null)//si nuestro menu activo es difernte null, que hay un menu anteriri q le emos seleccionado su color de fondo sera color blanco
             {
                 MenuActivo.BackColor = Color.White;
@@ -76,61 +78,116 @@ namespace Presentacion
             formulario.BackColor = Color.DimGray;//que el formulario se del color SteelBlue
 
             Contenedor.Controls.Add(formulario);//agregar al panel el formulario
-            formulario.Show();//Mostrar formulario
+            formulario.Show();//Mostrar formulario*/
+            // Restaurar colores anteriores
+            if (MenuActivo != null)
+            {
+                MenuActivo.BackColor = Color.White;
+                MenuActivo.ForeColor = Color.Black;
+            }
+
+            if (SubMenuActivo != null)
+            {
+                SubMenuActivo.BackColor = Color.White;
+                SubMenuActivo.ForeColor = Color.Black;
+            }
+
+            // Pintar el nuevo menú y submenú
+            menu.BackColor = Color.Silver;
+            menu.ForeColor = Color.Black;
+
+            if (subMenu != null)
+            {
+                subMenu.BackColor = Color.Silver;
+                subMenu.ForeColor = Color.Black;
+            }
+
+            MenuActivo = menu;
+            SubMenuActivo = subMenu;
+
+            // Cerrar formulario anterior
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            // Mostrar nuevo formulario
+            FormularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.DimGray;
+            Contenedor.Controls.Clear();
+            Contenedor.Controls.Add(formulario);
+            formulario.Show();
         }
         private void MenuUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmUsuarios());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmUsuarios());
+            AbrirFormulario(MenuUsuarios, null, new FrmUsuarios());
         }
 
         private void SubMenuCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmCategoria());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmCategoria());
+            AbrirFormulario(MenuMantenedor, SubMenuCategoria, new FrmCategoria());
+
         }
 
         private void SubMenuProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmProducto());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmProducto());
+            AbrirFormulario(MenuMantenedor, SubMenuProducto, new FrmProducto());
+
         }
 
         private void SubMenuRegistrarVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmVenta());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmVenta());
+            AbrirFormulario(MenuVentas, SubMenuRegistrarVenta, new FrmVenta());
         }
 
         private void SubMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra(usuarioActual));
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmCompra(usuarioActual));
+            AbrirFormulario(MenuCompras, SubMenuRegistrarCompra, new FrmCompra(usuarioActual));
         }
 
         private void MenuClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmClientes());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmClientes());
+            AbrirFormulario(MenuClientes, null, new FrmClientes());
         }
 
         private void MenuProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new FrmProveedores());
+            //AbrirFormulario((ToolStripMenuItem)sender, new FrmProveedores());
+            AbrirFormulario(MenuProveedores, null, new FrmProveedores());
         }
 
         private void SubMenuDetalleCompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new DetalleCompra());
+            //AbrirFormulario((ToolStripMenuItem)sender, new DetalleCompra());
+            AbrirFormulario(MenuCompras, SubMenuDetalleCompra, new DetalleCompra());
         }
 
         private void Inventario_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new Inventario());
+            //AbrirFormulario((ToolStripMenuItem)sender, new Inventario());
+            AbrirFormulario(MenuInventario, null, new Inventario());
         }
 
         private void SubMenuDetalleVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new DetalleVenta());
+            //AbrirFormulario((ToolStripMenuItem)sender, new DetalleVenta());
+            AbrirFormulario(MenuVentas, SubMenuDetalleVenta, new DetalleVenta());
+
         }
 
         private void MenuDeliveri_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((ToolStripMenuItem)sender, new Deliveri());
+            //AbrirFormulario((ToolStripMenuItem)sender, new Deliveri());
+            AbrirFormulario(MenuDeliveri, null, new Deliveri());
         }
     }
 }
